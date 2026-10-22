@@ -1,0 +1,13 @@
+.git
+.gitignore
+.env
+.env.example
+docker-compose.yml
+docker
+.DS_Store
+**/.DS_Store
+*.md
+wordpress/wp-content/uploads
+wordpress/wp-content/cache
+wordpress/wp-content/upgrade
+wordpress/wp-content/debug.log
