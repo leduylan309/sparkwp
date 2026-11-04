@@ -95,7 +95,7 @@
 .rm-when {
   text-align: center;
   font-family: var(--font-serif);
-  font-weight: 800;
+  font-weight: 700;
   color: var(--purple);
   font-size: 1rem;
 
@@ -129,10 +129,10 @@
   h4 {
     font-family: var(--font-serif);
     font-size: .68rem;
-    font-weight: 800;
+    font-weight: 700;
     letter-spacing: .14em;
     text-transform: uppercase;
-    color: var(--accent);
+    color: var(--purple);
     margin-top: .3rem;
   }
 
@@ -178,32 +178,37 @@
 .rm-v {
   max-width: 980px;
   margin-inline: auto;
+  --rm-rail: 28px;
 
   .rm-track {
     display: flex;
     flex-direction: column;
-    gap: clamp(18px,2vw,24px);
+    gap: clamp(22px,2.4vw,32px);
     padding-left: 0;
   }
 
   .rm-track::before {
     display: block;
-    left: 13px;
+    // Center on the 28px dots; purple-line avoids yellow-on-cream clash with labels.
+    left: calc(var(--rm-rail) / 2 - 1px);
     right: auto;
     top: 14px;
     bottom: 14px;
     width: 2px;
     height: auto;
+    background: var(--purple-line);
+    z-index: 0;
   }
 
   .rm-step {
     flex-direction: row;
     align-items: flex-start;
-    gap: clamp(16px,2vw,28px);
+    gap: clamp(18px,2.2vw,28px);
   }
 
   .rm-step::before {
     margin: 2px 0 0;
+    z-index: 1;
   }
 
   .rm-head {

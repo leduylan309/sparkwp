@@ -64,8 +64,10 @@ a.chip {
   gap: .45rem;
 
   li {
-    background: var(--purple-tint);
-    color: var(--purple);
+    // Solid paper + border so purple ovals stay readable on ivory/gold tints.
+    background: var(--paper);
+    color: var(--purple-700);
+    border: 1px solid var(--purple-line);
     font-weight: 600;
     font-size: .86rem;
     padding: .42em .85em;

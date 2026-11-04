@@ -26,8 +26,9 @@
 }
 
 .split-media {
-  position: var(--split-media-position, sticky);
-  top: 96px;
+  // Feedback: sticky media scrolled over other sections. Keep in flow.
+  position: var(--split-media-position, static);
+  top: auto;
   align-self: start;
 
   img {

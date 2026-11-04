@@ -94,7 +94,7 @@ body {
 
 h1 {
   font-family: var(--font-serif);
-  font-weight: 800;
+  font-weight: 700;
   color: var(--heading-color, var(--purple));
   margin: 0;
   line-height: 1.08;
@@ -104,7 +104,7 @@ h1 {
 
 h2 {
   font-family: var(--font-serif);
-  font-weight: 800;
+  font-weight: 700;
   color: var(--heading-color, var(--purple));
   margin: 0;
   line-height: 1.08;
@@ -1062,8 +1062,9 @@ a.chip {
   gap: 0.45rem;
 }
 .chips li {
-  background: var(--purple-tint);
-  color: var(--purple);
+  background: var(--paper);
+  color: var(--purple-700);
+  border: 1px solid var(--purple-line);
   font-weight: 600;
   font-size: 0.86rem;
   padding: 0.42em 0.85em;
@@ -2527,8 +2528,8 @@ a.chip {
 }
 
 .split-media {
-  position: var(--split-media-position, sticky);
-  top: 96px;
+  position: var(--split-media-position, static);
+  top: auto;
   align-self: start;
 }
 .split-media img {
@@ -2966,7 +2967,7 @@ a.chip {
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--accent);
+  color: var(--purple);
   margin-top: 1.4rem;
 }
 .copy .strong {
@@ -3103,7 +3104,7 @@ a.chip {
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--accent);
+  color: var(--purple);
   margin-top: 0.4rem;
 }
 .prog ul {
@@ -3171,7 +3172,7 @@ a.chip {
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--gold);
+  color: var(--ink);
   margin: 0;
 }
 .notice p {
@@ -3420,7 +3421,7 @@ a.chip {
   border-color: transparent;
 }
 .v--no h4 {
-  color: var(--gold);
+  color: var(--ink);
 }
 
 .flags {
@@ -3744,7 +3745,7 @@ a.chip {
 .rm-when {
   text-align: center;
   font-family: var(--font-serif);
-  font-weight: 800;
+  font-weight: 700;
   color: var(--purple);
   font-size: 1rem;
 }
@@ -3777,10 +3778,10 @@ a.chip {
 .rm-card h4 {
   font-family: var(--font-serif);
   font-size: 0.68rem;
-  font-weight: 800;
+  font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--accent);
+  color: var(--purple);
   margin-top: 0.3rem;
 }
 .rm-card ul {
@@ -3821,29 +3822,33 @@ a.chip {
 .rm-v {
   max-width: 980px;
   margin-inline: auto;
+  --rm-rail: 28px;
 }
 .rm-v .rm-track {
   display: flex;
   flex-direction: column;
-  gap: clamp(18px, 2vw, 24px);
+  gap: clamp(22px, 2.4vw, 32px);
   padding-left: 0;
 }
 .rm-v .rm-track::before {
   display: block;
-  left: 13px;
+  left: calc(var(--rm-rail) / 2 - 1px);
   right: auto;
   top: 14px;
   bottom: 14px;
   width: 2px;
   height: auto;
+  background: var(--purple-line);
+  z-index: 0;
 }
 .rm-v .rm-step {
   flex-direction: row;
   align-items: flex-start;
-  gap: clamp(16px, 2vw, 28px);
+  gap: clamp(18px, 2.2vw, 28px);
 }
 .rm-v .rm-step::before {
   margin: 2px 0 0;
+  z-index: 1;
 }
 .rm-v .rm-head {
   flex: 1;
@@ -5617,7 +5622,7 @@ h2:has(+ .pillars),
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--accent);
+  color: var(--purple);
 }
 
 .is-style-title-hair {

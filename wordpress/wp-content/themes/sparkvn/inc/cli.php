@@ -359,8 +359,7 @@ function sparkvn_cli_seed_menu( array $id_by_slug ): void {
 	$add( 'IB School Guide', $u( '/ib-school-guide/' ), $rl );
 	$add( "Parent's Guide", $u( '/ask-a-teacher/' ), $rl );
 	$add( 'Reading Age Growth Center', $u( '/reading-age-growth-center/' ), $rl );
-	$add( 'Student Portal', $u( '/student-portal/' ), $ex );
-	$add( 'Spark Store', $u( '/spark-store/' ), $ex );
+	// Student Portal + Spark Store intentionally omitted from nav until ready.
 	$add( 'Contact', $u( '/contact/' ) );
 	$add( 'Blog', $u( '/blog/' ) );
 }
