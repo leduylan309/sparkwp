@@ -1,0 +1,13 @@
+// option-card — component — owns only selectors rooted at its own classes. Appearance is configurable from outside only through its --custom-property API; parents may only position it (margin / alignment).
+@use '../abstracts/mixins' as *;
+
+.options {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: clamp(16px,2vw,24px);
+  margin-top: clamp(28px,3vw,40px);
+
+  @include down(900px) {
+    grid-template-columns: 1fr;
+  }
+}

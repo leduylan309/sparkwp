@@ -1,0 +1,12 @@
+// spark-icon — component — owns only selectors rooted at its own classes. Appearance is configurable from outside only through its --custom-property API; parents may only position it (margin / alignment).
+@use '../abstracts/mixins' as *;
+
+.spark {
+  display: inline-block;
+  width: var(--spark-size, 1em);
+  height: var(--spark-size, 1em);
+  background: currentColor;
+  -webkit-mask: var(--star) center/contain no-repeat;
+  mask: var(--star) center/contain no-repeat;
+  color: var(--spark-color, inherit);
+}

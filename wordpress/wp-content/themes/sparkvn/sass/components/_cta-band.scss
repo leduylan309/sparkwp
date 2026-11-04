@@ -1,0 +1,25 @@
+// cta-band — component — owns only selectors rooted at its own classes. Appearance is configurable from outside only through its --custom-property API; parents may only position it (margin / alignment).
+@use '../abstracts/mixins' as *;
+
+.cta-band {
+  text-align: center;
+  --lead-color: #E7DCEA;
+  --container-max: 760px;
+
+  h2 {
+    color: #fff;
+    margin-top: 1rem;
+  }
+
+  .lead {
+    margin: 1.1rem auto 0;
+  }
+
+  .cta-row {
+    margin-top: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+  }
+}

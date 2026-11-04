@@ -1,0 +1,48 @@
+// the-spark-method — page-specific section styles (used on one page).
+@use '../abstracts/mixins' as *;
+
+.spark-letters {
+  display: grid;
+  grid-template-columns: repeat(5,1fr);
+  gap: 12px;
+  margin-top: clamp(28px,3vw,40px);
+
+  button {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: var(--r);
+    padding: 1.1rem .8rem;
+    text-align: left;
+    font: inherit;
+    cursor: pointer;
+    transition: border-color .2s,background .2s;
+  }
+
+  button .L {
+    font-family: var(--font-serif);
+    font-size: 2rem;
+    color: var(--accent);
+    line-height: 1;
+  }
+
+  button .T {
+    display: block;
+    margin-top: .4rem;
+    font-weight: 600;
+    font-size: .92rem;
+    color: var(--ink);
+  }
+
+  button.active {
+    border-color: var(--purple);
+    background: var(--purple-tint);
+  }
+
+  button.active .L {
+    color: var(--purple);
+  }
+
+  @include down(md) {
+    grid-template-columns: repeat(2,1fr);
+  }
+}

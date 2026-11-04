@@ -1,0 +1,49 @@
+// advantage — component — owns only selectors rooted at its own classes. Appearance is configurable from outside only through its --custom-property API; parents may only position it (margin / alignment).
+@use '../abstracts/mixins' as *;
+
+.adv-grid {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: clamp(18px,2vw,26px);
+  margin-top: clamp(36px,4vw,52px);
+
+  @include down(lg) {
+    grid-template-columns: 1fr;
+  }
+
+  &.cols-2 {
+    grid-template-columns: repeat(2,1fr);
+  }
+}
+
+.adv-card {
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+
+  img {
+    width: 100%;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+    display: block;
+  }
+
+  .ab {
+    padding: clamp(20px,2.2vw,28px);
+  }
+
+  h3 {
+    font-size: 1.2rem;
+    color: var(--purple);
+  }
+
+  p {
+    margin-top: .6rem;
+    color: var(--ink-soft);
+    line-height: 1.6;
+  }
+}

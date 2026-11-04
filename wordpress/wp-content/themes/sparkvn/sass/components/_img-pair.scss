@@ -1,0 +1,27 @@
+// img-pair — component — owns only selectors rooted at its own classes. Appearance is configurable from outside only through its --custom-property API; parents may only position it (margin / alignment).
+@use '../abstracts/mixins' as *;
+
+.img-pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: clamp(28px,3vw,40px);
+
+  // Exclusive / Teachers Corner sit the pair after hub-grid.
+  .hub-grid + & {
+    margin-top: clamp(40px, 4.4vw, 64px);
+  }
+
+  img {
+    width: 100%;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+    border-radius: var(--r-lg);
+    box-shadow: var(--shadow-sm);
+    display: block;
+  }
+
+  @include down(640px) {
+    grid-template-columns: 1fr;
+  }
+}

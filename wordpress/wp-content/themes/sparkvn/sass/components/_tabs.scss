@@ -1,0 +1,92 @@
+// tabs — component — owns only selectors rooted at its own classes. Appearance is configurable from outside only through its --custom-property API; parents may only position it (margin / alignment).
+@use '../abstracts/mixins' as *;
+
+.tabs {
+  margin-top: clamp(28px,3vw,40px);
+}
+
+.tab-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px;
+  border-bottom: 1px solid var(--line);
+
+  button {
+    background: transparent;
+    border: 0;
+    padding: .85em 1.25em;
+    font-family: var(--font-serif);
+    font-weight: 700;
+    font-size: .94rem;
+    color: var(--ink-soft);
+    border-bottom: 2.5px solid transparent;
+    margin-bottom: -1px;
+    transition: color .2s,border-color .2s;
+  }
+
+  button:hover {
+    color: var(--purple);
+  }
+
+  button.active {
+    color: var(--purple);
+    border-bottom-color: var(--accent);
+  }
+}
+
+.tab-panels {
+  padding-top: clamp(26px,2.8vw,36px);
+}
+
+.tab-panel {
+  display: none;
+
+  &.active {
+    display: block;
+    animation: fadein .35s ease;
+  }
+
+  &.active.split {
+    display: grid;
+  }
+
+  &.split {
+    --split-img-ratio: 4/3;
+    --split-img-maxh: 400px;
+    --split-img-maxh-sm: 400px;
+    --split-media-position: static;
+
+    .split-media {
+      top: auto;
+    }
+  }
+
+  // html/ uses tab-panel.split as the grid. If a columns wrapper is still
+  // nested (legacy seed), promote its children so the panel is one grid.
+  > .wp-block-columns.split,
+  > .wp-block-columns.is-style-split {
+    display: contents;
+  }
+}
+
+.opt-tabs {
+
+  .tab-list button {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: .15rem;
+    font-family: var(--font-serif);
+    font-weight: 800;
+    font-size: 1rem;
+    padding: 1rem 1.3rem;
+  }
+
+  .tab-list button .k {
+    font-size: .68rem;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 800;
+  }
+}

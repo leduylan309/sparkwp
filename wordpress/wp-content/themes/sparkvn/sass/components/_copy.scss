@@ -1,0 +1,72 @@
+// copy — component — owns only selectors rooted at its own classes. Appearance is configurable from outside only through its --custom-property API; parents may only position it (margin / alignment).
+@use '../abstracts/mixins' as *;
+
+.copy {
+  max-width: 720px;
+
+  + h2,
+  + .wp-block-heading:is(h2) {
+    margin-top: clamp(40px, 5vw, 64px);
+  }
+
+  > *+* {
+    margin-top: 1.1rem;
+  }
+
+  // classed lists (e.g. chip lists) sit tight under their label
+  > ul[class] {
+    margin-top: .6rem;
+  }
+
+  p {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: var(--ink);
+  }
+
+  p.soft {
+    color: var(--ink-soft);
+  }
+
+  :where(ul:not([class])) {
+    margin: 0;
+    padding-left: 1.25em;
+    display: flex;
+    flex-direction: column;
+    gap: .45rem;
+    color: var(--ink);
+    font-size: 1.02rem;
+    line-height: 1.6;
+  }
+
+  :where(ul:not([class])) li::marker {
+    color: var(--accent);
+  }
+
+  > h3,
+  > .wp-block-heading:is(h3) {
+    font-size: 1.25rem;
+    margin-top: 1.6rem;
+  }
+
+  > h4,
+  > .wp-block-heading:is(h4) {
+    font-family: var(--font-serif);
+    font-size: .78rem;
+    font-weight: 700;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-top: 1.4rem;
+  }
+
+  .strong {
+    font-weight: 700;
+    color: var(--purple);
+    font-size: 1.12rem;
+  }
+
+  .btn {
+    margin-top: 1.6rem;
+  }
+}

@@ -1,0 +1,45 @@
+// photo-strip — component — owns only selectors rooted at its own classes. Appearance is configurable from outside only through its --custom-property API; parents may only position it (margin / alignment).
+@use '../abstracts/mixins' as *;
+
+.photo-strip {
+  margin-block: clamp(40px,4.4vw,64px);
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+
+  & {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 16px;
+    margin-top: clamp(32px,3.6vw,48px);
+  }
+
+  img {
+    width: 100%;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+    border-radius: var(--r-lg);
+    box-shadow: var(--shadow-sm);
+    display: block;
+  }
+
+  &:has(> :only-child),
+  &:has(> .wp-block-image:only-child) {
+    grid-template-columns: 1fr;
+  }
+
+  @include down(700px) {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @include down(700px) {
+    img:last-child {
+      grid-column: 1/-1;
+      aspect-ratio: 16/9;
+    }
+  }
+
+  img {
+    background: var(--ivory-2) url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23C8B8CA' stroke-width='1.2'><rect x='3' y='5' width='18' height='14' rx='2'/><path d='m3 16 5-5 4 4 3-3 6 6'/><circle cx='15.5' cy='9.5' r='1.5'/></svg>") center/40px no-repeat;
+  }
+}

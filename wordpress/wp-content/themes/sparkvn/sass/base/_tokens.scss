@@ -1,0 +1,38 @@
+// tokens — base layer
+@use '../abstracts/mixins' as *;
+
+:root {
+  --purple: #5D1C61;
+  --purple-700: #4A1750;
+  --purple-900: #320D37;
+  --purple-tint: #F3EAF4;
+  --purple-line: #E4D2E6;
+  --ivory: #FBF7F0;
+  --ivory-2: #F5EDE0;
+  --paper: #FFFFFF;
+  --ink: #2B2530;
+  --ink-soft: #6A6470;
+  --ink-faint: #938D9B;
+  --gold: #AF863A;
+  --gold-soft: #C7A659;
+  --gold-tint: #F4ECDC;
+  --line: #E9E0D1;
+  --line-strong: #DBCDB4;
+  --accent: var(--gold);
+  --accent-soft: var(--gold-soft);
+  --font-serif: "AvenirNextLTPro","Avenir Next LT Pro","Avenir Next",Avenir,"Nunito Sans",ui-sans-serif,system-ui,sans-serif;
+  --font-sans: "Frank Ruhl Libre","Frank Ruhl Libre Fallback",Georgia,serif;
+  --container: 1180px;
+  --gutter: clamp(20px, 5vw, 48px);
+  --section-y: clamp(72px, 9vw, 132px);
+  --r-sm: 8px;
+  --r: 14px;
+  --r-lg: 22px;
+  --shadow-sm: 0 1px 2px rgba(43,37,48,.04), 0 6px 18px -10px rgba(43,37,48,.18);
+  --shadow: 0 2px 6px rgba(43,37,48,.05), 0 24px 48px -28px rgba(43,37,48,.30);
+  --shadow-purple: 0 24px 60px -30px rgba(50,13,55,.55);
+}
+
+:root {
+  --star: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path d='M12 0 C12.6 6.4 17.6 11.4 24 12 C17.6 12.6 12.6 17.6 12 24 C11.4 17.6 6.4 12.6 0 12 C6.4 11.4 11.4 6.4 12 0 Z'/></svg>");
+}

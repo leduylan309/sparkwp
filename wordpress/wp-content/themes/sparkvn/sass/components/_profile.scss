@@ -1,0 +1,90 @@
+// profile — component — owns only selectors rooted at its own classes. Appearance is configurable from outside only through its --custom-property API; parents may only position it (margin / alignment).
+@use '../abstracts/mixins' as *;
+
+.profile-grid {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: clamp(16px,2vw,24px);
+  margin-top: clamp(22px,2.6vw,32px);
+
+  @include down(xl) {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @include down(sm) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.profile {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--r-lg);
+  padding: clamp(22px,2.4vw,30px);
+  display: flex;
+  flex-direction: column;
+  gap: .6rem;
+
+  .pf-k {
+    font-family: var(--font-serif);
+    font-weight: 800;
+    font-size: .74rem;
+    letter-spacing: .14em;
+    color: var(--accent);
+  }
+
+  h4 {
+    font-family: var(--font-serif);
+    font-size: 1.18rem;
+    font-weight: 800;
+    color: var(--purple);
+  }
+
+  p {
+    color: var(--ink-soft);
+    line-height: 1.58;
+    font-size: .97rem;
+  }
+
+  .need {
+    margin-top: auto;
+    padding-top: .9rem;
+    border-top: 1px solid var(--line);
+    font-size: .93rem;
+    line-height: 1.55;
+    color: var(--ink);
+  }
+
+  .need b {
+    display: block;
+    font-family: var(--font-serif);
+    font-size: .7rem;
+    font-weight: 800;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: .35rem;
+  }
+}
+
+.profile--cta {
+  background: var(--purple);
+  border-color: var(--purple);
+  --btn-bg: var(--gold);
+  --btn-fg: var(--purple);
+  --btn-border: var(--gold);
+  --btn-hover-bg: var(--gold);
+
+  h4 {
+    color: #fff;
+  }
+
+  p {
+    color: #fff;
+  }
+
+  .btn {
+    margin-top: auto;
+    align-self: flex-start;
+  }
+}

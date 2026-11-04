@@ -1,0 +1,285 @@
+// roadmap — component — owns only selectors rooted at its own classes. Appearance is configurable from outside only through its --custom-property API; parents may only position it (margin / alignment).
+@use '../abstracts/mixins' as *;
+
+.roadmap {
+  margin-top: clamp(32px,3.6vw,48px);
+  position: relative;
+}
+
+.rm-track {
+  display: grid;
+  grid-template-columns: repeat(5,1fr);
+  gap: clamp(12px,1.6vw,20px);
+  position: relative;
+
+  &.cols-4 {
+    grid-template-columns: repeat(4,1fr);
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: 10%;
+    right: 10%;
+    top: 13px;
+    height: 2px;
+    background: var(--line-strong);
+  }
+
+  @include down(1000px) {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @include down(1000px) {
+    &::before {
+      display: none;
+    }
+  }
+
+  @include down(sm) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.rm-step {
+  display: flex;
+  flex-direction: column;
+  gap: .9rem;
+
+  // Decorative marker via ::before — avoids Gutenberg empty-block gray UI.
+  &::before {
+    content: "";
+    box-sizing: border-box;
+    width: 28px;
+    height: 28px;
+    min-width: 28px;
+    border-radius: 50%;
+    background: var(--paper);
+    border: 3px solid var(--purple);
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+    flex: none;
+  }
+
+  &:first-child::before,
+  &:first-child .rm-dot {
+    background: var(--purple);
+  }
+
+  @include down(1000px) {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  @include down(1000px) {
+    > :not(.rm-dot) {
+      flex: 1;
+    }
+  }
+
+  @include down(1000px) {
+    &::before {
+      margin: 4px 0 0;
+    }
+  }
+}
+
+// Legacy content/patterns that still ship an .rm-dot node — hide so ::before is the only marker.
+.rm-step > .rm-dot,
+.rm-step > .wp-block-paragraph.rm-dot,
+.rm-step > .wp-block-group.rm-dot {
+  display: none !important;
+}
+
+.rm-when {
+  text-align: center;
+  font-family: var(--font-serif);
+  font-weight: 800;
+  color: var(--purple);
+  font-size: 1rem;
+
+  @include down(1000px) {
+    text-align: left;
+  }
+}
+
+.rm-card {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--r-lg);
+  padding: clamp(18px,2vw,24px);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: .7rem;
+
+  h3 {
+    font-size: 1.02rem;
+    color: var(--ink);
+    line-height: 1.3;
+  }
+
+  p {
+    font-size: .92rem;
+    color: var(--ink-soft);
+    line-height: 1.55;
+  }
+
+  h4 {
+    font-family: var(--font-serif);
+    font-size: .68rem;
+    font-weight: 800;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-top: .3rem;
+  }
+
+  ul {
+    margin: .3rem 0 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: .3rem;
+    font-size: .9rem;
+    color: var(--ink);
+    line-height: 1.45;
+  }
+
+  ul li {
+    padding-left: 1em;
+    position: relative;
+  }
+
+  ul li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: .55em;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--gold);
+  }
+}
+
+.rm-head {
+
+  @include down(1000px) {
+    display: flex;
+    flex-direction: column;
+    gap: .9rem;
+    flex: 1;
+  }
+}
+
+.rm-v {
+  max-width: 980px;
+  margin-inline: auto;
+
+  .rm-track {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(18px,2vw,24px);
+    padding-left: 0;
+  }
+
+  .rm-track::before {
+    display: block;
+    left: 13px;
+    right: auto;
+    top: 14px;
+    bottom: 14px;
+    width: 2px;
+    height: auto;
+  }
+
+  .rm-step {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: clamp(16px,2vw,28px);
+  }
+
+  .rm-step::before {
+    margin: 2px 0 0;
+  }
+
+  .rm-head {
+    flex: 1;
+    display: grid;
+    grid-template-columns: 150px minmax(0,1fr);
+    gap: clamp(14px,2vw,24px);
+    align-items: start;
+  }
+
+  .rm-when {
+    text-align: left;
+    font-size: 1.1rem;
+    padding-top: 2px;
+  }
+
+  .rm-card {
+    display: grid;
+    grid-template-columns: minmax(0,1.25fr) minmax(0,1fr);
+    gap: .6rem clamp(18px,2.4vw,32px);
+  }
+
+  .rm-card h3 {
+    grid-column: 1/-1;
+    font-size: 1.2rem;
+    color: var(--purple);
+  }
+
+  .rm-card > p {
+    grid-column: 1;
+    grid-row: 2/4;
+  }
+
+  .rm-card > h4 {
+    grid-column: 2;
+    grid-row: 2;
+    margin-top: 0;
+  }
+
+  .rm-card > ul {
+    grid-column: 2;
+    grid-row: 3;
+    margin-top: 0;
+  }
+
+  @include down(820px) {
+    .rm-head {
+      grid-template-columns: 1fr;
+      gap: .5rem;
+    }
+  }
+
+  @include down(820px) {
+    .rm-card {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @include down(820px) {
+    .rm-card > p {
+      grid-column: 1;
+      grid-row: auto;
+    }
+  }
+
+  @include down(820px) {
+    .rm-card > h4 {
+      grid-column: 1;
+      grid-row: auto;
+    }
+  }
+
+  @include down(820px) {
+    .rm-card > ul {
+      grid-column: 1;
+      grid-row: auto;
+    }
+  }
+}

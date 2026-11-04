@@ -1,0 +1,122 @@
+// our-story — page-specific section styles (used on one page).
+@use '../abstracts/mixins' as *;
+
+.team-card {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--shadow-sm);
+
+  img {
+    background: var(--ivory-2) url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23C8B8CA' stroke-width='1.2'><rect x='3' y='5' width='18' height='14' rx='2'/><path d='m3 16 5-5 4 4 3-3 6 6'/><circle cx='15.5' cy='9.5' r='1.5'/></svg>") center/40px no-repeat;
+  }
+
+  img {
+    width: 100%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    object-position: center 20%;
+    display: block;
+  }
+
+  .tc-body {
+    padding: clamp(20px,2.2vw,28px);
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    flex: 1;
+  }
+
+  h3 {
+    font-size: 1.3rem;
+    color: var(--purple);
+  }
+
+  .role {
+    color: var(--accent);
+    font-family: var(--font-serif);
+    font-weight: 700;
+    font-size: .74rem;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+  }
+
+  p {
+    color: var(--ink-soft);
+    line-height: 1.62;
+    font-size: .97rem;
+    margin-top: .3rem;
+  }
+
+  details {
+    margin-top: auto;
+    padding-top: .6rem;
+  }
+
+  details p {
+    color: var(--ink);
+    margin-top: .8rem;
+  }
+
+  summary {
+    list-style: none;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: .5em;
+    font-family: var(--font-serif);
+    font-weight: 700;
+    font-size: .92rem;
+    color: var(--purple);
+    padding: .5rem 0;
+    min-height: 44px;
+  }
+
+  summary::-webkit-details-marker {
+    display: none;
+  }
+
+  summary::after {
+    content: "";
+    width: 8px;
+    height: 8px;
+    border-right: 2px solid currentColor;
+    border-bottom: 2px solid currentColor;
+    transform: rotate(45deg);
+    transition: transform .25s;
+  }
+
+  details[open] summary::after {
+    transform: rotate(-135deg);
+  }
+
+  details[open] summary .more {
+    display: none;
+  }
+
+  summary .less {
+    display: none;
+  }
+
+  details[open] summary .less {
+    display: inline;
+  }
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: clamp(18px,2.2vw,28px);
+  margin-top: clamp(28px,3vw,40px);
+
+  @include down(xl) {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @include down(sm) {
+    grid-template-columns: 1fr;
+  }
+}

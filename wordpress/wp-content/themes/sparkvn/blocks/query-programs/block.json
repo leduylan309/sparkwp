@@ -1,0 +1,16 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "sparkvn/query-programs",
+	"title": "Spark Programs query",
+	"category": "sparkvn",
+	"icon": "grid-view",
+	"textdomain": "sparkvn",
+	"attributes": {
+		"layout": { "type": "string", "default": "feature" }
+	},
+	"supports": { "html": false },
+	"example": { "viewportWidth": 1180, "attributes": { "layout": "feature" } },
+	"editorScript": "sparkvn-blocks-editor",
+	"render": "file:./render.php"
+}

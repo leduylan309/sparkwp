@@ -1,0 +1,40 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "sparkvn/hero",
+	"title": "Spark Hero",
+	"category": "sparkvn",
+	"icon": "cover-image",
+	"description": "Home video hero or page image hero with overlay.",
+	"textdomain": "sparkvn",
+	"attributes": {
+		"variation": { "type": "string", "default": "page" },
+		"center": { "type": "boolean", "default": false },
+		"short": { "type": "boolean", "default": false },
+		"eyebrow": { "type": "string", "default": "" },
+		"title": { "type": "string", "default": "Spark English Center" },
+		"lead": { "type": "string", "default": "" },
+		"lines": { "type": "string", "default": "" },
+		"linesSmall": { "type": "string", "default": "" },
+		"imageUrl": { "type": "string", "default": "" },
+		"videoUrl": { "type": "string", "default": "" },
+		"posterUrl": { "type": "string", "default": "" },
+		"ctaLabel": { "type": "string", "default": "" },
+		"ctaUrl": { "type": "string", "default": "" },
+		"chips": { "type": "string", "default": "" },
+		"ariaLabel": { "type": "string", "default": "" }
+	},
+	"supports": { "html": false, "align": [ "full" ] },
+	"example": {
+		"viewportWidth": 1180,
+		"attributes": {
+			"variation": "page",
+			"eyebrow": "About Spark",
+			"title": "Explore Spark",
+			"imageUrl": "assets/img/campus-classroom.jpg",
+			"ariaLabel": "About Spark"
+		}
+	},
+	"editorScript": "sparkvn-blocks-editor",
+	"render": "file:./render.php"
+}

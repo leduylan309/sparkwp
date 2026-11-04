@@ -1,0 +1,21 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "sparkvn/query-posts",
+	"title": "Spark Posts query",
+	"category": "sparkvn",
+	"icon": "admin-post",
+	"textdomain": "sparkvn",
+	"attributes": {
+		"variation": { "type": "string", "default": "blog" },
+		"title": { "type": "string", "default": "" },
+		"category": { "type": "string", "default": "" },
+		"perPage": { "type": "number", "default": 9 },
+		"center": { "type": "boolean", "default": false },
+		"ids": { "type": "array", "items": { "type": "number" }, "default": [] }
+	},
+	"supports": { "html": false },
+	"example": { "viewportWidth": 1180, "attributes": { "title": "Latest articles" } },
+	"editorScript": "sparkvn-blocks-editor",
+	"render": "file:./render.php"
+}

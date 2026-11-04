@@ -1,0 +1,662 @@
+// WordPress compatibility — do not restyle Spark components, only neutralize WP wrappers.
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 100000;
+}
+
+.skip-link:focus {
+  left: 8px;
+  top: 8px;
+  padding: 8px 14px;
+  background: var(--paper);
+  color: var(--purple);
+  border-radius: var(--r-sm);
+}
+
+.screen-reader-text {
+  clip: rect(1px, 1px, 1px, 1px);
+  position: absolute !important;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+}
+
+.site,
+#page {
+  margin: 0;
+  padding: 0;
+  max-width: none;
+}
+
+.entry-content,
+.site-main,
+.wp-site-blocks {
+  margin: 0;
+  padding: 0;
+  max-width: none;
+}
+
+.entry-content > *,
+.entry-content .wp-block-group,
+.entry-content .wp-block-html,
+.entry-content .wp-block-image {
+  max-width: none !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+// The reset above is stronger than Spark component max-widths
+// (.copy 720, .sec-head 760, .summary / .faq-wrap 820). Restore them
+// so Gutenberg wrappers do not stretch body copy to the container.
+.entry-content .copy,
+.entry-content .wp-block-group.copy,
+.editor-styles-wrapper .copy,
+.editor-styles-wrapper .wp-block-group.copy {
+  max-width: 720px !important;
+}
+
+.entry-content .sec-head,
+.entry-content .wp-block-group.sec-head,
+.editor-styles-wrapper .sec-head,
+.editor-styles-wrapper .wp-block-group.sec-head {
+  max-width: 760px !important;
+}
+
+.entry-content .sec-head.center,
+.entry-content .wp-block-group.sec-head.center,
+.editor-styles-wrapper .sec-head.center,
+.editor-styles-wrapper .wp-block-group.sec-head.center {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+.entry-content .inline-cta,
+.entry-content .wp-block-group.inline-cta,
+.editor-styles-wrapper .inline-cta,
+.editor-styles-wrapper .wp-block-group.inline-cta {
+  max-width: 820px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+.entry-content .summary,
+.entry-content .wp-block-group.summary,
+.entry-content .faq-wrap,
+.entry-content .wp-block-group.faq-wrap,
+.editor-styles-wrapper .summary,
+.editor-styles-wrapper .wp-block-group.summary,
+.editor-styles-wrapper .faq-wrap,
+.editor-styles-wrapper .wp-block-group.faq-wrap {
+  max-width: 820px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+.wp-block-group.faq-list.crit-list,
+.wp-block-group.crit-list,
+.faq-list.crit-list {
+  max-width: 860px !important;
+}
+
+// Top-level sections use padding, not margin. Nested Spark widgets
+// (.adv-grid, .two-lists, .pathway-track, .hub-grid, …) own margin-top —
+// do not zero those here. Specificity of `.entry-content .wp-block-group`
+// (0,2,0) would beat every Spark component class (0,1,0).
+.entry-content > * {
+  margin-block: 0;
+}
+
+.wp-block-html {
+  display: contents;
+}
+
+// Gutenberg Group / Columns / Image / Details / Buttons → Spark class API.
+.wp-block-group.hub-grid,
+.wp-block-group.hub-grid.is-layout-flow,
+.wp-block-group.img-pair,
+.wp-block-group.img-pair.is-layout-flow,
+.wp-block-group.final-grid,
+.wp-block-group.final-grid.is-layout-flow,
+.wp-block-group.step-grid,
+.wp-block-group.step-grid.is-layout-flow,
+.wp-block-group.step-item,
+.wp-block-group.step-item.is-layout-flow {
+  display: grid;
+}
+
+// Vertical + horizontal roadmaps: keep HTML flex/grid despite Group is-layout-flow.
+.wp-block-group.rm-track,
+.wp-block-group.rm-track.is-layout-flow {
+  display: grid;
+}
+
+.wp-block-group.rm-v .wp-block-group.rm-track,
+.wp-block-group.rm-v .wp-block-group.rm-track.is-layout-flow {
+  display: flex;
+  flex-direction: column;
+}
+
+.wp-block-group.rm-step,
+.wp-block-group.rm-step.is-layout-flow {
+  display: flex;
+}
+
+.wp-block-group.rm-v .wp-block-group.rm-head,
+.wp-block-group.rm-v .wp-block-group.rm-head.is-layout-flow,
+.wp-block-group.rm-v .wp-block-group.rm-card,
+.wp-block-group.rm-v .wp-block-group.rm-card.is-layout-flow {
+  display: grid;
+}
+
+// Legacy .rm-dot nodes (dots are CSS ::before on .rm-step now).
+.rm-step > .wp-block-group.rm-dot,
+.rm-step > .wp-block-paragraph.rm-dot {
+  display: none !important;
+}
+
+.wp-block-group.hub-grid.is-layout-flow > * + *,
+.wp-block-group.img-pair.is-layout-flow > * + *,
+.wp-block-group.final-grid.is-layout-flow > * + *,
+.wp-block-group.step-grid.is-layout-flow > * + *,
+.wp-block-group.step-item.is-layout-flow > * + *,
+.wp-block-group.rm-track.is-layout-flow > * + *,
+.wp-block-group.rm-step.is-layout-flow > * + *,
+.wp-block-group.rm-head.is-layout-flow > * + *,
+.wp-block-group.rm-card.is-layout-flow > * + * {
+  margin-block-start: 0;
+}
+
+.wp-block-group.section,
+.wp-block-group.section--tight,
+.wp-block-group.container,
+.wp-block-group.title-hair,
+.wp-block-group.final-grid,
+.wp-block-group.hub-grid,
+.wp-block-group.step-grid,
+.wp-block-group.adv-grid,
+.wp-block-group.info-grid,
+.wp-block-group.feat-list,
+.wp-block-group.faq-list,
+.wp-block-group.related,
+.wp-block-group.cta-band,
+.wp-block-group.cta-row,
+.wp-block-group.rel-links,
+.wp-block-group.img-pair,
+.wp-block-group.photo-strip,
+.wp-block-group.two-lists,
+.wp-block-group.team-grid,
+.wp-block-group.testi-grid,
+.wp-block-group.pathway-grid,
+.wp-block-group.pathway-track,
+.wp-block-group.prog-feature,
+.wp-block-group.pf,
+.wp-block-group.pf-media,
+.wp-block-group.pf-body,
+.wp-block-group.pf-ideal {
+  max-width: none;
+}
+
+.wp-block-group.prog-feature.is-layout-flow {
+  display: flex;
+  flex-direction: column;
+}
+
+.wp-block-group.pf,
+.wp-block-group.pf.is-layout-flow {
+  display: grid;
+}
+
+.wp-block-group.pf-media.is-layout-flow {
+  gap: 0;
+}
+
+// Program tabs: .tab-panel.split IS the HTML split grid (image | copy).
+.wp-block-group.tab-panel.split,
+.wp-block-sparkvn-tab-panel.tab-panel.split {
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(32px, 5vw, 68px);
+  align-items: start;
+}
+
+.wp-block-group.tab-panel.active.split,
+.wp-block-group.tab-panel.split.active,
+.wp-block-sparkvn-tab-panel.tab-panel.active.split,
+.wp-block-sparkvn-tab-panel.tab-panel.split.active {
+  display: grid;
+}
+
+.wp-block-group.tab-panel.split > .split-media,
+.wp-block-group.tab-panel.split > .split-copy,
+.wp-block-sparkvn-tab-panel.tab-panel.split > .split-media,
+.wp-block-sparkvn-tab-panel.tab-panel.split > .split-copy {
+  min-width: 0;
+}
+
+@media (max-width: 860px) {
+  .wp-block-group.tab-panel.split,
+  .wp-block-sparkvn-tab-panel.tab-panel.split {
+    grid-template-columns: 1fr;
+  }
+}
+
+.wp-block-group.pf-media > * {
+  margin-block-start: 0 !important;
+}
+
+.wp-block-group.faq-list.crit-list {
+  max-width: 860px;
+}
+
+.wp-block-group.container {
+  width: 100%;
+  max-width: var(--container-max, var(--container));
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.wp-block-columns.is-style-split,
+.wp-block-columns.split,
+.wp-block-columns.is-style-split-rev {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(32px, 5vw, 68px);
+  align-items: start;
+  flex-wrap: unset !important;
+
+  @media (max-width: 860px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.wp-block-columns.is-style-split-rev .wp-block-column.split-media,
+.wp-block-columns.split.rev .wp-block-column.split-media {
+  order: 2;
+}
+
+@media (max-width: 860px) {
+  .wp-block-columns.is-style-split-rev .wp-block-column.split-media,
+  .wp-block-columns.split.rev .wp-block-column.split-media {
+    order: 0;
+  }
+}
+
+.wp-block-column.split-copy,
+.wp-block-column.split-media,
+.wp-block-column.q-card,
+.wp-block-column.scorecard {
+  flex-basis: auto !important;
+  min-width: 0;
+}
+
+// Converter used to nest .q-card / .scorecard inside a column of the same
+// class. Inner copy of the skin would double padding — flatten it.
+.wp-block-column.q-card > .q-card,
+.wp-block-column.scorecard > .scorecard {
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+  padding: 0;
+  border-radius: 0;
+  margin: 0;
+}
+
+.wp-block-column.split-media .wp-block-image,
+.wp-block-column.split-media .wp-block-image img,
+.split-media .wp-block-image,
+.split-media .wp-block-image img,
+.img-pair .wp-block-image,
+.img-pair figure.wp-block-image {
+  margin: 0;
+  min-width: 0;
+  width: 100%;
+}
+
+.img-pair .wp-block-image img,
+.photo-strip .wp-block-image,
+.photo-strip .wp-block-image img,
+.hub-card .wp-block-image,
+.hub-card .wp-block-image img,
+.adv-card .wp-block-image,
+.adv-card .wp-block-image img,
+.pf-media .wp-block-image,
+.pf-media .wp-block-image img {
+  width: 100%;
+  margin: 0;
+}
+
+.pf-media .wp-block-image,
+.pf-media figure.wp-block-image {
+  position: absolute;
+  inset: 0;
+  height: 100%;
+}
+
+.wp-block-group.pf-ideal > p:first-child {
+  flex: none;
+  margin: 0;
+}
+
+.wp-block-column.split-media .wp-block-image img {
+  border-radius: var(--r-lg);
+  box-shadow: var(--shadow);
+  object-fit: cover;
+  max-height: var(--split-img-maxh, 460px);
+  aspect-ratio: var(--split-img-ratio, 4/3);
+}
+
+.wp-block-column.split-media.tall .wp-block-image img {
+  aspect-ratio: 3/4;
+  max-height: 520px;
+  max-width: 420px;
+  margin-inline: auto;
+}
+
+.wp-block-details.is-style-faq,
+.wp-block-details.faq-item {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--r);
+  overflow: hidden;
+}
+
+.wp-block-details.is-style-faq summary,
+.wp-block-details.faq-item summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 1.2rem clamp(18px, 2.2vw, 26px);
+  font-family: var(--font-serif);
+  font-size: clamp(1.08rem, 1.5vw, 1.22rem);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.wp-block-details.faq-item summary:not(:has(.q-ic))::after {
+  content: "";
+  flex: none;
+  margin-left: auto;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 1.5px solid var(--line-strong);
+  background:
+    linear-gradient(currentColor, currentColor) center / 12px 2px no-repeat,
+    linear-gradient(currentColor, currentColor) center / 2px 12px no-repeat;
+  color: var(--purple);
+}
+
+.wp-block-details.faq-item[open] summary:not(:has(.q-ic))::after {
+  background: var(--purple);
+  border-color: var(--purple);
+  color: #fff;
+}
+
+.wp-block-details.is-style-faq .wp-block-details__content,
+.wp-block-details.faq-item .wp-block-details__content,
+.wp-block-details.is-style-faq > :not(summary),
+.wp-block-details.faq-item > :not(summary) {
+  padding: 0 clamp(18px, 2.2vw, 26px) 1.2rem;
+}
+
+.wp-block-button .wp-block-button__link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-serif);
+  font-weight: 700;
+  border-radius: 999px;
+  padding: .92em 1.5em;
+  text-decoration: none;
+}
+
+.wp-block-button:not(.is-style-gold):not(.is-style-ghost) .wp-block-button__link {
+  background: var(--btn-bg, var(--purple));
+  color: #fff;
+}
+
+.wp-block-button.is-style-gold .wp-block-button__link {
+  background: var(--gold);
+  color: #fff;
+  border: 0;
+}
+
+.wp-block-button.is-style-ghost .wp-block-button__link {
+  background: transparent;
+  color: var(--ink);
+  border: 1.5px solid var(--line-strong);
+}
+
+.wp-block-buttons.cta-row,
+.wp-block-group.cta-row {
+  margin-top: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.wp-block-buttons.rel-links,
+.wp-block-group.rel-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .7rem;
+}
+
+.wp-block-group.rel-links > p,
+.wp-block-group.rel-links > .wp-block-paragraph,
+.wp-block-group.rel-links.is-layout-flow > p,
+.wp-block-group.rel-links.is-layout-flow > .wp-block-paragraph {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .7rem;
+  margin: 0;
+  width: auto;
+}
+
+.wp-block-heading {
+  font-family: var(--font-serif);
+}
+
+// Do not zero p.path-node / p.path-tag / p.outcome here.
+// Base `p { margin: 0 }` already kills UA paragraph margins.
+// Spark `.path-node { margin-bottom: 22px }` and `.path-tag { margin-top: .6rem }`
+// must win (0,1,0). `p.path-node { margin: 0 }` is 0,1,1 and collapses the
+// number → card gap on Home pathway.
+
+.two-lists h4,
+.two-lists h4.wp-block-heading,
+.copy .two-lists h4,
+.copy .two-lists h4.wp-block-heading {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--ink);
+}
+
+.adv-card .ab p b,
+.adv-card p b {
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.path-card h3.wp-block-heading {
+  font-size: 1.18rem;
+}
+
+.prog h3.wp-block-heading {
+  font-size: 1.4rem;
+  color: var(--purple);
+}
+
+.prog h4.wp-block-heading {
+  font-family: var(--font-serif);
+  font-size: .76rem;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.is-style-title-hair {
+  display: flex;
+  flex-direction: column;
+  gap: .6rem;
+}
+
+.title-hair:not(:has(.rule-gold, hr))::after {
+  content: "";
+  width: 54px;
+  height: 2px;
+  background: var(--accent);
+  display: block;
+}
+
+.wp-block-separator.rule-gold,
+.wp-block-separator.rule,
+hr.rule-gold,
+hr.rule {
+  width: 54px;
+  max-width: 54px;
+  height: 2px;
+  background: var(--accent);
+  border: 0;
+  opacity: 1;
+  margin: 0;
+}
+
+.copy ul.wp-block-list,
+.split-copy ul.wp-block-list,
+.wp-block-column.copy ul.wp-block-list {
+  margin: 0;
+  padding-left: 1.25em;
+  display: flex;
+  flex-direction: column;
+  gap: .45rem;
+  color: var(--ink);
+  font-size: 1.02rem;
+  line-height: 1.6;
+}
+
+// .split-copy ul.wp-block-list { margin:0 } above beats .two-lists ul (same
+// column). Restore HTML spacing/color for the homepage two-lists grid.
+.copy .two-lists ul.wp-block-list,
+.split-copy .two-lists ul.wp-block-list,
+.wp-block-column.copy .two-lists ul.wp-block-list,
+.wp-block-column.split-copy .two-lists ul.wp-block-list,
+.two-lists ul.wp-block-list {
+  margin: .7rem 0 0;
+  padding-left: 1.2em;
+  gap: .4rem;
+  color: var(--ink-soft);
+  font-size: inherit;
+  line-height: inherit;
+}
+
+.copy ul.wp-block-list li::marker,
+.split-copy ul.wp-block-list li::marker,
+.wp-block-column.copy ul.wp-block-list li::marker {
+  color: var(--accent);
+}
+
+.editor-styles-wrapper .reveal {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+.summary .label:not(:has(.spark))::before,
+.q-card .label:not(:has(.spark))::before,
+.inline-cta:not(:has(.spark))::before {
+  content: "";
+  display: inline-block;
+  width: var(--spark-size, 1em);
+  height: var(--spark-size, 1em);
+  background: currentColor;
+  -webkit-mask: var(--star) center/contain no-repeat;
+  mask: var(--star) center/contain no-repeat;
+}
+
+.inline-cta > p.spark,
+.inline-cta > .spark.wp-block-paragraph {
+  display: inline-block;
+  margin: 0 auto;
+  min-height: 0;
+}
+
+.sparkvn-card {
+  text-decoration: none;
+  color: inherit;
+}
+
+.summary li:not(:has(.tick))::before,
+.wp-block-group.summary li:not(:has(.tick))::before {
+  content: "";
+  flex: none;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--purple-tint);
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%235D1C61' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'><path d='M20 6L9 17l-5-5'/></svg>");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 14px;
+}
+
+.scorecard li:not(:has(.tick))::before,
+.wp-block-group.scorecard li:not(:has(.tick))::before {
+  content: "";
+  flex: none;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--gold);
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%235D1C61' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'><path d='M20 6L9 17l-5-5'/></svg>");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 14px;
+  margin-top: 1px;
+}
+
+body.admin-bar .site-header {
+  top: 32px;
+}
+
+@media (max-width: 782px) {
+  body.admin-bar .site-header {
+    top: 46px;
+  }
+}
+
+body {
+  overflow-x: clip;
+}
+
+.alignwide,
+.alignfull {
+  margin-left: 0;
+  margin-right: 0;
+  width: 100%;
+  max-width: none;
+}
+
+#noResults {
+  display: none;
+  text-align: center;
+  padding: 2rem 0;
+}
+
+#noResults.show {
+  display: block;
+}
+
+#pagination.hide {
+  display: none;
+}
+
+.blog-toolbar {
+  margin-top: 1.5rem;
+}

@@ -20,6 +20,7 @@ services:
         define('WP_DEBUG_DISPLAY', false);
         define('SCRIPT_DEBUG', true);
         define('FS_METHOD', 'direct');
+        define('WP_DEVELOPMENT_MODE', 'theme');
     volumes:
       - ./wordpress:/var/www/html
       - ./docker/php/uploads.ini:/usr/local/etc/php/conf.d/uploads.ini:ro

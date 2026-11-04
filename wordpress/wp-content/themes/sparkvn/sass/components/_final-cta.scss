@@ -1,0 +1,24 @@
+// final-cta — component — owns only selectors rooted at its own classes. Appearance is configurable from outside only through its --custom-property API; parents may only position it (margin / alignment).
+@use '../abstracts/mixins' as *;
+
+.final {
+  position: relative;
+}
+
+.final-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.02fr;
+  gap: clamp(36px,5vw,72px);
+  align-items: start;
+
+  @include down(lg) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.final-copy {
+
+  .lead {
+    margin-top: 1.1rem;
+  }
+}

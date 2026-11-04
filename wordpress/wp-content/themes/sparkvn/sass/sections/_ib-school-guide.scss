@@ -1,0 +1,184 @@
+// ib-school-guide — page-specific section styles (used on one page).
+@use '../abstracts/mixins' as *;
+
+.cefr {
+  margin-top: clamp(32px,3.6vw,48px);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(20px,2.4vw,32px);
+  padding-left: 84px;
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: 31px;
+    top: 20px;
+    bottom: 20px;
+    width: 2px;
+    background: var(--line-strong);
+  }
+
+  @include down(md) {
+    padding-left: 0;
+  }
+
+  @include down(md) {
+    &::before {
+      display: none;
+    }
+  }
+}
+
+.cefr-item {
+  position: relative;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--r-lg);
+  padding: clamp(22px,2.4vw,32px);
+  display: grid;
+  grid-template-columns: minmax(0,1fr) minmax(0,1fr);
+  gap: clamp(18px,2.4vw,32px);
+
+  .lv {
+    position: absolute;
+    left: -84px;
+    top: 18px;
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: var(--purple);
+    color: #fff;
+    font-family: var(--font-serif);
+    font-weight: 900;
+    font-size: 1.3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 0 6px var(--ivory);
+  }
+
+  &.b .lv {
+    background: var(--gold);
+    color: var(--purple);
+  }
+
+  &.c .lv {
+    background: var(--purple-900,#3B0F3F);
+  }
+
+  .ch {
+    grid-column: 1/-1;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: .4rem 1rem;
+  }
+
+  .ch h3 {
+    font-size: 1.45rem;
+    color: var(--purple);
+  }
+
+  .ch .band {
+    font-family: var(--font-serif);
+    font-weight: 700;
+    font-size: .74rem;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+
+  h4 {
+    font-family: var(--font-serif);
+    font-size: .7rem;
+    font-weight: 800;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-bottom: .35rem;
+  }
+
+  p {
+    color: var(--ink);
+    line-height: 1.6;
+    font-size: .97rem;
+  }
+
+  .eq {
+    grid-column: 1/-1;
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5rem;
+    padding-top: .8rem;
+    border-top: 1px solid var(--line);
+  }
+
+  .eq span {
+    background: var(--ivory-2);
+    border-radius: 999px;
+    padding: .4em .9em;
+    font-size: .86rem;
+    color: var(--ink);
+    font-weight: 600;
+  }
+
+  @include down(md) {
+    grid-template-columns: 1fr;
+    padding-top: 56px;
+  }
+
+  @include down(md) {
+    .lv {
+      left: 18px;
+      top: -20px;
+      width: 52px;
+      height: 52px;
+      font-size: 1.05rem;
+    }
+  }
+}
+
+.tbl-wrap {
+  margin-top: clamp(28px,3vw,40px);
+  overflow-x: auto;
+  border: 1px solid var(--line);
+  border-radius: var(--r-lg);
+  background: var(--paper);
+}
+
+.tbl {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 640px;
+  font-size: .95rem;
+
+  th {
+    background: var(--purple);
+    color: #fff;
+    font-family: var(--font-serif);
+    font-weight: 800;
+    font-size: .74rem;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    text-align: left;
+    padding: .9rem 1rem;
+  }
+
+  td {
+    padding: .85rem 1rem;
+    border-top: 1px solid var(--line);
+    color: var(--ink);
+    vertical-align: top;
+  }
+
+  td:first-child {
+    font-family: var(--font-serif);
+    font-weight: 800;
+    color: var(--purple);
+  }
+
+  tr:nth-child(even) td {
+    background: var(--ivory);
+  }
+}

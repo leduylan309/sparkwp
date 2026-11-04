@@ -1,0 +1,78 @@
+// info-card — component — owns only selectors rooted at its own classes. Appearance is configurable from outside only through its --custom-property API; parents may only position it (margin / alignment).
+@use '../abstracts/mixins' as *;
+
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: clamp(18px,2vw,28px);
+  margin-top: clamp(32px,3.4vw,44px);
+
+  @include down(700px) {
+    grid-template-columns: 1fr;
+  }
+
+  &.cols-3 {
+    grid-template-columns: repeat(3,1fr);
+  }
+
+  &.cols-4 {
+    grid-template-columns: repeat(4,1fr);
+  }
+
+  @include down(xl) {
+    &.cols-3 {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  @include down(xl) {
+    &.cols-4 {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  @include down(sm) {
+    &.cols-3 {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @include down(sm) {
+    &.cols-4 {
+      grid-template-columns: 1fr;
+    }
+  }
+}
+
+.info-card {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--r);
+  padding: clamp(22px,2.4vw,30px);
+
+  h3 {
+    font-size: 1.15rem;
+  }
+
+  p {
+    color: var(--ink-soft);
+    margin-top: .6rem;
+    font-size: .98rem;
+  }
+
+  p:first-child {
+    margin-top: 0;
+  }
+
+  ul {
+    margin: .6rem 0 0;
+    padding-left: 1.1em;
+    color: var(--ink-soft);
+    line-height: 1.6;
+    font-size: .96rem;
+  }
+
+  ul li::marker {
+    color: var(--accent);
+  }
+}

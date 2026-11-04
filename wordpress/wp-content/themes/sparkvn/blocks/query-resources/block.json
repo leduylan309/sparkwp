@@ -1,0 +1,13 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "sparkvn/query-resources",
+	"title": "Spark Resources query",
+	"category": "sparkvn",
+	"icon": "media-document",
+	"textdomain": "sparkvn",
+	"supports": { "html": false },
+	"example": { "viewportWidth": 1180 },
+	"editorScript": "sparkvn-blocks-editor",
+	"render": "file:./render.php"
+}

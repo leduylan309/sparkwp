@@ -1,0 +1,60 @@
+// flag-list — component — owns only selectors rooted at its own classes. Appearance is configurable from outside only through its --custom-property API; parents may only position it (margin / alignment).
+@use '../abstracts/mixins' as *;
+
+.flags {
+  margin-top: clamp(40px,4.4vw,60px);
+  display: grid;
+  grid-template-columns: minmax(0,1fr) minmax(0,2fr);
+  gap: clamp(24px,3vw,48px);
+  align-items: start;
+
+  @include down(lg) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.flags-head {
+
+  h3 {
+    font-size: 1.4rem;
+    color: var(--purple);
+  }
+
+  p {
+    margin-top: .6rem;
+    color: var(--ink-soft);
+  }
+}
+
+.flag-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(14px,1.6vw,20px);
+
+  li {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-left: 3px solid var(--gold);
+    border-radius: var(--r);
+    padding: 1rem 1.1rem;
+    font-size: .95rem;
+    line-height: 1.55;
+    color: var(--ink-soft);
+  }
+
+  li b {
+    display: block;
+    color: var(--ink);
+    font-family: var(--font-serif);
+    font-weight: 800;
+    font-size: .98rem;
+    margin-bottom: .25rem;
+  }
+
+  @include down(sm) {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,59 @@
+// community — page-specific section styles (used on one page).
+@use '../abstracts/mixins' as *;
+
+.network {
+  margin-top: clamp(40px,5vw,60px);
+  text-align: center;
+
+  p {
+    color: var(--ink-soft);
+  }
+}
+
+.school-card {
+  padding: clamp(22px,2.4vw,30px) 0;
+  border-top: 1px solid var(--line);
+
+  &:first-of-type {
+    border-top: 0;
+  }
+
+  h3 {
+    font-size: 1.22rem;
+  }
+
+  .sc-loc {
+    color: var(--ink-faint);
+    font-size: .86rem;
+    margin-top: .35rem;
+  }
+
+  .sc-row {
+    margin-top: .9rem;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 14px;
+  }
+
+  .sc-row h4 {
+    font-family: var(--font-sans);
+    font-size: .76rem;
+    font-weight: 700;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+
+  .sc-row p {
+    margin-top: .4rem;
+    color: var(--ink-soft);
+    font-size: .95rem;
+    line-height: 1.55;
+  }
+
+  @include down(700px) {
+    .sc-row {
+      grid-template-columns: 1fr;
+    }
+  }
+}

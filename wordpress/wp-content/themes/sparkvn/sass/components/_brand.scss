@@ -1,0 +1,22 @@
+// brand — component — owns only selectors rooted at its own classes. Appearance is configurable from outside only through its --custom-property API; parents may only position it (margin / alignment).
+@use '../abstracts/mixins' as *;
+
+.brand {
+  display: flex;
+  align-items: center;
+  flex: none;
+
+  .logo-white {
+    display: var(--logo-white, inline);
+  }
+
+  img {
+    height: var(--brand-h, 38px);
+    width: auto;
+    transition: height .3s ease;
+  }
+
+  .logo-purple {
+    display: var(--logo-purple, none);
+  }
+}

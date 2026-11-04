@@ -1,0 +1,88 @@
+// program — component — owns only selectors rooted at its own classes. Appearance is configurable from outside only through its --custom-property API; parents may only position it (margin / alignment).
+@use '../abstracts/mixins' as *;
+
+.prog-detail {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(20px,2.4vw,30px);
+  margin-top: clamp(40px,4.4vw,60px);
+
+  @include down(lg) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.prog {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--r-lg);
+  padding: clamp(26px,2.8vw,38px);
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  gap: .9rem;
+
+  .pn {
+    font-family: var(--font-serif);
+    font-size: 2.4rem;
+    line-height: 1;
+    color: var(--accent);
+  }
+
+  h3 {
+    font-size: 1.4rem;
+    color: var(--purple);
+  }
+
+  .tag {
+    font-weight: 600;
+    color: var(--ink);
+  }
+
+  p {
+    color: var(--ink-soft);
+    line-height: 1.62;
+  }
+
+  h4 {
+    font-family: var(--font-serif);
+    font-size: .76rem;
+    font-weight: 700;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-top: .4rem;
+  }
+
+  ul {
+    margin: 0;
+    padding-left: 1.2em;
+    display: flex;
+    flex-direction: column;
+    gap: .35rem;
+    color: var(--ink);
+    font-size: .98rem;
+  }
+
+  ul li::marker {
+    color: var(--accent);
+  }
+
+  .outcome {
+    margin-top: auto;
+    padding-top: 1rem;
+    border-top: 1px solid var(--line);
+    color: var(--ink);
+  }
+
+  .outcome b {
+    color: var(--purple);
+  }
+}
+
+.prog-feature {
+  margin-top: clamp(36px,4vw,56px);
+  display: flex;
+  flex-direction: column;
+  gap: clamp(20px,2.4vw,30px);
+}

@@ -1,0 +1,25 @@
+// notice — component — owns only selectors rooted at its own classes. Appearance is configurable from outside only through its --custom-property API; parents may only position it (margin / alignment).
+@use '../abstracts/mixins' as *;
+
+.notice {
+  margin-top: 1.6rem;
+  background: var(--gold-tint);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--r);
+  padding: 1.1rem 1.3rem;
+
+  h4 {
+    font-family: var(--font-sans);
+    font-size: .74rem;
+    font-weight: 700;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin: 0;
+  }
+
+  p {
+    margin-top: .4rem;
+    color: var(--ink);
+  }
+}

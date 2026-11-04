@@ -1,0 +1,75 @@
+// chip — component — owns only selectors rooted at its own classes. Appearance is configurable from outside only through its --custom-property API; parents may only position it (margin / alignment).
+@use '../abstracts/mixins' as *;
+
+.trust-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .6rem .7rem;
+  margin-top: 2.6rem;
+  justify-content: var(--trust-chips-justify, normal);
+}
+
+a.chip {
+  text-decoration: none;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: .5em;
+  font-size: var(--chip-size, .86rem);
+  font-weight: var(--chip-weight, 500);
+  color: var(--chip-fg, var(--ink));
+  background: var(--chip-bg, var(--paper));
+  border: 1px solid var(--chip-border, var(--line));
+  padding: .5em .9em;
+  border-radius: 999px;
+  box-shadow: var(--chip-shadow, var(--shadow-sm));
+  --spark-color: var(--chip-spark-color, var(--accent));
+  --spark-size: .8em;
+  backdrop-filter: var(--chip-blur, none);
+}
+
+.chip--filter {
+  border: 1px solid var(--line);
+  background: var(--paper);
+  color: var(--ink-soft);
+  font-size: .85rem;
+  font-weight: 600;
+  padding: .55rem 1.05rem;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: all .2s ease;
+  white-space: nowrap;
+  box-shadow: none;
+
+  &:hover {
+    border-color: var(--purple);
+    color: var(--purple);
+  }
+
+  &.active {
+    background: var(--purple);
+    border-color: var(--purple);
+    color: #fff;
+  }
+}
+
+.chips {
+  list-style: none;
+  margin: .6rem 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: .45rem;
+
+  li {
+    background: var(--purple-tint);
+    color: var(--purple);
+    font-weight: 600;
+    font-size: .86rem;
+    padding: .42em .85em;
+    border-radius: 999px;
+    line-height: 1.3;
+  }
+}

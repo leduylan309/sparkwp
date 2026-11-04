@@ -1,0 +1,38 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "sparkvn/card",
+	"title": "Spark Card",
+	"category": "sparkvn",
+	"icon": "id-alt",
+	"description": "Linked image card: hub, advantage, team, testimonial, or program.",
+	"textdomain": "sparkvn",
+	"attributes": {
+		"variation": { "type": "string", "default": "hub" },
+		"url": { "type": "string", "default": "" },
+		"imageUrl": { "type": "string", "default": "" },
+		"imageId": { "type": "number", "default": 0 },
+		"title": { "type": "string", "default": "Card title" },
+		"excerpt": { "type": "string", "default": "Short description." },
+		"goLabel": { "type": "string", "default": "Explore" },
+		"role": { "type": "string", "default": "" },
+		"bio": { "type": "string", "default": "" },
+		"cite": { "type": "string", "default": "" },
+		"source": { "type": "string", "default": "" },
+		"date": { "type": "string", "default": "" }
+	},
+	"supports": { "html": false },
+	"example": {
+		"viewportWidth": 560,
+		"attributes": {
+			"variation": "hub",
+			"title": "Our Story",
+			"excerpt": "Learn how Spark was founded and why reading and writing come first.",
+			"url": "/our-story/",
+			"imageUrl": "assets/img/cdn/IMG_2107-1920w.jpeg",
+			"goLabel": "Explore"
+		}
+	},
+	"editorScript": "sparkvn-blocks-editor",
+	"render": "file:./render.php"
+}

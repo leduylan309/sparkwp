@@ -1,0 +1,76 @@
+// q-card — component — owns only selectors rooted at its own classes. Appearance is configurable from outside only through its --custom-property API; parents may only position it (margin / alignment).
+@use '../abstracts/mixins' as *;
+
+.q-card {
+  background: var(--paper);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--r-lg);
+  padding: clamp(24px,2.8vw,36px);
+  box-shadow: var(--shadow-sm);
+
+  .label {
+    display: inline-flex;
+    align-items: center;
+    gap: .55em;
+    font-size: .74rem;
+    font-weight: 700;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    color: var(--accent);
+    --spark-size: .95em;
+  }
+
+  p:not(.label) {
+    margin-top: .8rem;
+    line-height: 1.65;
+    color: var(--ink);
+  }
+
+  p:not(.label) + p {
+    color: var(--ink-soft);
+  }
+}
+
+.q-list {
+  margin: 1rem 0 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: q;
+
+  li {
+    counter-increment: q;
+    display: grid;
+    grid-template-columns: 30px minmax(0, 1fr);
+    gap: .8rem;
+    padding: .7rem 0;
+    border-top: 1px solid var(--line);
+    color: var(--ink);
+    line-height: 1.5;
+    font-size: .97rem;
+  }
+
+  li::before {
+    content: counter(q,decimal-leading-zero);
+    grid-column: 1;
+    grid-row: 1;
+    font-family: var(--font-serif);
+    font-weight: 800;
+    color: var(--purple);
+    font-size: .85rem;
+    padding-top: .15em;
+  }
+
+  // One text cell. Bare <b> inside li would otherwise become a 30px grid item
+  // and wrap "maximum" as ma / xim / um.
+  li > .q-item {
+    min-width: 0;
+    grid-column: 2;
+  }
+
+  li > b,
+  li > strong,
+  li > a,
+  li > em {
+    display: contents;
+  }
+}

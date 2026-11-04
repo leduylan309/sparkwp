@@ -1,0 +1,25 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "sparkvn/tabs",
+	"title": "Spark Tabs",
+	"category": "sparkvn",
+	"icon": "index-card",
+	"textdomain": "sparkvn",
+	"attributes": {
+		"variation": { "type": "string", "default": "default" },
+		"heading": { "type": "string", "default": "" },
+		"labels": { "type": "string", "default": "Tab 1 | Tab 2" }
+	},
+	"supports": { "html": false, "innerBlocks": true },
+	"example": {
+		"viewportWidth": 800,
+		"attributes": {
+			"variation": "default",
+			"heading": "Program Levels",
+			"labels": "Level 1 | Level 2"
+		}
+	},
+	"editorScript": "sparkvn-blocks-editor",
+	"render": "file:./render.php"
+}

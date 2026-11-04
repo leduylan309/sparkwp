@@ -1,0 +1,24 @@
+// eyebrow — component — owns only selectors rooted at its own classes. Appearance is configurable from outside only through its --custom-property API; parents may only position it (margin / alignment).
+@use '../abstracts/mixins' as *;
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: .6em;
+  font-family: var(--font-serif);
+  font-size: .78rem;
+  font-weight: 700;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--eyebrow-color, var(--accent));
+
+  &::before {
+    content: "";
+    width: 1.05em;
+    height: 1.05em;
+    flex: none;
+    background: currentColor;
+    -webkit-mask: var(--star) center/contain no-repeat;
+    mask: var(--star) center/contain no-repeat;
+  }
+}

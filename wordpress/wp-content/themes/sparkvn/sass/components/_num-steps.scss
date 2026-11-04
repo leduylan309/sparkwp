@@ -1,0 +1,34 @@
+// num-steps — component — owns only selectors rooted at its own classes. Appearance is configurable from outside only through its --custom-property API; parents may only position it (margin / alignment).
+@use '../abstracts/mixins' as *;
+
+.num-steps {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: clamp(18px,2vw,26px);
+  margin-top: clamp(32px,3.4vw,44px);
+
+  .step {
+    text-align: left;
+  }
+
+  .num {
+    font-family: var(--font-serif);
+    color: var(--gold);
+    font-size: 1.6rem;
+  }
+
+  h3 {
+    font-size: 1.12rem;
+    margin-top: .5rem;
+  }
+
+  p {
+    color: var(--ink-soft);
+    margin-top: .5rem;
+    font-size: .96rem;
+  }
+
+  @include down(700px) {
+    grid-template-columns: 1fr;
+  }
+}

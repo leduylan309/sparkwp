@@ -1,0 +1,45 @@
+// breadcrumb — component — owns only selectors rooted at its own classes. Appearance is configurable from outside only through its --custom-property API; parents may only position it (margin / alignment).
+@use '../abstracts/mixins' as *;
+
+.crumbs {
+  font-size: .86rem;
+  color: var(--ink-faint);
+
+  ol {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: .5em;
+    margin: 0;
+    padding: 0;
+  }
+
+  li {
+    display: flex;
+    align-items: center;
+    gap: .5em;
+  }
+
+  a {
+    color: var(--ink-soft);
+  }
+
+  a:hover {
+    color: var(--purple);
+  }
+
+  li[aria-current] {
+    color: var(--ink);
+  }
+
+  .sep {
+    color: var(--line-strong);
+  }
+}
+
+.crumb-bar {
+  background: var(--paper);
+  border-bottom: 1px solid var(--line);
+  padding-block: .85rem;
+}

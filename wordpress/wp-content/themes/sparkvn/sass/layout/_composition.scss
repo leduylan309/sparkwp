@@ -1,0 +1,33 @@
+// composition — layout layer
+@use '../abstracts/mixins' as *;
+
+.crumb-bar + main > .section:first-child {
+  padding-top: clamp(40px,4.5vw,64px);
+}
+
+.crumb-bar + main > section.section:first-of-type {
+  padding-top: clamp(40px,4.5vw,64px);
+}
+
+// WP: hero renders crumb inside the content stream, so the first section
+// is the next sibling of .crumb-bar (HTML keeps crumb outside <main>).
+.crumb-bar + .section,
+.crumb-bar + .wp-block-group.section {
+  padding-top: clamp(40px,4.5vw,64px);
+}
+
+.crumb-bar + main > .article-wrap:first-child {
+  padding-top: clamp(32px,3.5vw,52px);
+}
+
+.sec-head + .copy {
+  margin-top: clamp(28px,3vw,40px);
+}
+
+// html/joe-evans.html: h2 style="margin-top:clamp(40px,5vw,64px)" after .copy
+.copy + h2,
+.copy + .wp-block-heading,
+h2:has(+ .pillars),
+.wp-block-heading:has(+ .pillars) {
+  margin-top: clamp(40px, 5vw, 64px);
+}

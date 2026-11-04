@@ -1,0 +1,78 @@
+// Spark English Center — site-v2 stylesheet entry
+// Build: sass scss/main.scss css/main.css
+
+// 1. Base
+@use 'base/tokens';
+@use 'base/reset';
+@use 'base/typography';
+@use 'base/animations';
+
+// 2. Layout
+@use 'layout/container';
+@use 'layout/section';
+
+// 3. Components
+@use 'components/brand';
+@use 'components/eyebrow';
+@use 'components/spark-icon';
+@use 'components/section-title';
+@use 'components/button';
+@use 'components/header';
+@use 'components/hero';
+@use 'components/chip';
+@use 'components/bridge';
+@use 'components/assess';
+@use 'components/timeline';
+@use 'components/final-cta';
+@use 'components/form';
+@use 'components/footer';
+@use 'components/article';
+@use 'components/breadcrumb';
+@use 'components/blog-list';
+@use 'components/summary';
+@use 'components/inline-cta';
+@use 'components/faq';
+@use 'components/cta-band';
+@use 'components/split';
+@use 'components/tabs';
+@use 'components/info-card';
+@use 'components/photo-strip';
+@use 'components/num-steps';
+@use 'components/hub';
+@use 'components/related';
+@use 'components/copy';
+@use 'components/advantage';
+@use 'components/two-lists';
+@use 'components/program';
+@use 'components/img-pair';
+@use 'components/notice';
+@use 'components/pillars';
+@use 'components/feature-list';
+@use 'components/option-card';
+@use 'components/profile';
+@use 'components/verdict';
+@use 'components/flag-list';
+@use 'components/q-card';
+@use 'components/scorecard';
+@use 'components/step-grid';
+@use 'components/roadmap';
+
+// 4. Page sections
+@use 'sections/ask-a-teacher';
+@use 'sections/home';
+@use 'sections/community';
+@use 'sections/contact';
+@use 'sections/misc';
+@use 'sections/the-spark-method';
+@use 'sections/programs';
+@use 'sections/english-support';
+@use 'sections/our-story';
+@use 'sections/ib-school-guide';
+@use 'sections/resource-library';
+@use 'sections/spark-store';
+@use 'sections/student-portal';
+
+// 5. Composition & utilities
+@use 'layout/composition';
+@use 'utilities/reveal';
+@use 'utilities/wp';

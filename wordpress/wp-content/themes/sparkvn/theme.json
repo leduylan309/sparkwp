@@ -3,73 +3,86 @@
 	"version": 3,
 	"settings": {
 		"appearanceTools": true,
-		"useRootPaddingAwareAlignments": true,
+		"useRootPaddingAwareAlignments": false,
 		"layout": {
-			"contentSize": "720px",
-			"wideSize": "1200px"
+			"contentSize": "1180px",
+			"wideSize": "1180px"
 		},
 		"color": {
 			"defaultPalette": false,
 			"defaultGradients": false,
 			"palette": [
-				{
-					"slug": "base",
-					"color": "#ffffff",
-					"name": "Base"
-				},
-				{
-					"slug": "contrast",
-					"color": "#0b1f3a",
-					"name": "Contrast"
-				},
-				{
-					"slug": "accent",
-					"color": "#f15a29",
-					"name": "Accent"
-				},
-				{
-					"slug": "muted",
-					"color": "#f4f1ec",
-					"name": "Muted"
-				},
-				{
-					"slug": "neutral",
-					"color": "#5c6570",
-					"name": "Neutral"
-				}
+				{ "slug": "purple", "color": "#5D1C61", "name": "Purple" },
+				{ "slug": "purple-700", "color": "#4A1750", "name": "Purple 700" },
+				{ "slug": "purple-900", "color": "#320D37", "name": "Purple 900" },
+				{ "slug": "purple-tint", "color": "#F3EAF4", "name": "Purple tint" },
+				{ "slug": "gold", "color": "#AF863A", "name": "Gold" },
+				{ "slug": "gold-soft", "color": "#C7A659", "name": "Gold soft" },
+				{ "slug": "ivory", "color": "#FBF7F0", "name": "Ivory" },
+				{ "slug": "ivory-2", "color": "#F5EDE0", "name": "Ivory 2" },
+				{ "slug": "paper", "color": "#FFFFFF", "name": "Paper" },
+				{ "slug": "ink", "color": "#2B2530", "name": "Ink" },
+				{ "slug": "ink-soft", "color": "#6A6470", "name": "Ink soft" },
+				{ "slug": "line", "color": "#E9E0D1", "name": "Line" }
 			]
 		},
 		"typography": {
 			"fluid": true,
 			"fontFamilies": [
 				{
-					"fontFamily": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif",
-					"slug": "system-sans",
-					"name": "System Sans"
+					"fontFamily": "\"AvenirNextLTPro\", \"Avenir Next LT Pro\", \"Avenir Next\", Avenir, \"Nunito Sans\", ui-sans-serif, system-ui, sans-serif",
+					"slug": "heading",
+					"name": "Heading (Avenir / Nunito Sans)"
+				},
+				{
+					"fontFamily": "\"Frank Ruhl Libre\", Georgia, serif",
+					"slug": "body",
+					"name": "Body (Frank Ruhl Libre)"
 				}
 			]
 		},
 		"spacing": {
-			"units": [ "px", "em", "rem", "vh", "vw", "%" ]
+			"units": [ "px", "em", "rem", "vh", "vw", "%" ],
+			"spacingSizes": [
+				{ "slug": "section", "size": "clamp(72px, 9vw, 132px)", "name": "Section" },
+				{ "slug": "gutter", "size": "clamp(20px, 5vw, 48px)", "name": "Gutter" }
+			]
+		},
+		"border": {
+			"radius": true
 		}
 	},
 	"styles": {
 		"color": {
-			"background": "var(--wp--preset--color--base)",
-			"text": "var(--wp--preset--color--contrast)"
+			"background": "var(--wp--preset--color--ivory)",
+			"text": "var(--wp--preset--color--ink)"
 		},
 		"typography": {
-			"fontFamily": "var(--wp--preset--font-family--system-sans)"
+			"fontFamily": "var(--wp--preset--font-family--body)"
 		},
 		"elements": {
+			"heading": {
+				"typography": {
+					"fontFamily": "var(--wp--preset--font-family--heading)"
+				}
+			},
 			"link": {
 				"color": {
-					"text": "var(--wp--preset--color--accent)"
+					"text": "var(--wp--preset--color--purple)"
 				},
 				":hover": {
 					"color": {
-						"text": "var(--wp--preset--color--contrast)"
+						"text": "var(--wp--preset--color--gold)"
 					}
+				}
+			},
+			"button": {
+				"color": {
+					"background": "var(--wp--preset--color--purple)",
+					"text": "#ffffff"
+				},
+				"border": {
+					"radius": "8px"
 				}
 			}
 		}

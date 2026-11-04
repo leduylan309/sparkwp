@@ -1,0 +1,29 @@
+// assess — component — owns only selectors rooted at its own classes. Appearance is configurable from outside only through its --custom-property API; parents may only position it (margin / alignment).
+@use '../abstracts/mixins' as *;
+
+.assess {
+  position: relative;
+  overflow: hidden;
+  --lead-color: #E7DCEA;
+  --container-position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(900px 360px at 12% -10%, rgba(199,166,89,.18), transparent 60%);
+    pointer-events: none;
+  }
+
+  h2 {
+    color: #fff;
+  }
+
+  .lead {
+    margin-top: 1rem;
+  }
+
+  .btn {
+    margin-top: .4rem;
+  }
+}

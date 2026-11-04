@@ -1,0 +1,23 @@
+// section — layout layer
+@use '../abstracts/mixins' as *;
+
+.section {
+  padding-block: var(--section-y);
+}
+
+.section--tight {
+  padding-block: clamp(56px,7vw,96px);
+}
+
+.bg-ivory2 {
+  background: var(--ivory-2);
+}
+
+.bg-purple {
+  background: var(--purple);
+  color: #F4EBDE;
+  --heading-color: #fff;
+  --subheading-color: #fff;
+  --lead-color: #E7DCEA;
+  --eyebrow-color: var(--gold-soft);
+}

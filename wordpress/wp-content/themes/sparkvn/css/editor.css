@@ -1,0 +1,377 @@
+/* Editor chrome only — do not restyle Spark components. */
+
+/* spark.js never runs in Gutenberg, so .reveal would stay opacity:0. */
+.editor-styles-wrapper .reveal,
+.is-root-container .reveal {
+	opacity: 1 !important;
+	transform: none !important;
+	visibility: visible !important;
+}
+
+.editor-visual-editor__post-title-wrapper,
+.edit-post-visual-editor__post-title-wrapper {
+	display: none !important;
+}
+
+.sparkvn-ssr-canvas {
+	max-width: none !important;
+}
+
+.sparkvn-ssr-canvas a,
+.sparkvn-ssr-canvas button {
+	pointer-events: none;
+}
+
+.block-editor-block-list__block:has(> .sparkvn-ssr-canvas) {
+	max-width: none !important;
+}
+
+.sparkvn-pattern-shot {
+	display: block;
+	width: 100%;
+	height: auto;
+	border-radius: 4px;
+}
+
+.block-editor-block-types-list__item[class*="editor-block-list-item-sparkvn-"] {
+	position: relative;
+}
+
+.sparkvn-block-hover,
+.sparkvn-block-hover-preview {
+	display: none;
+	position: absolute;
+	right: calc(100% + 12px);
+	top: 50%;
+	transform: translateY(-50%);
+	width: 280px;
+	height: auto;
+	max-height: 168px;
+	object-fit: cover;
+	object-position: top center;
+	border-radius: 8px;
+	border: 1px solid #E9E0D1;
+	box-shadow: 0 10px 28px rgba(43, 37, 48, 0.16);
+	background: #FBF7F0;
+	z-index: 100000;
+	pointer-events: none;
+}
+
+.block-editor-block-types-list__item:hover > .sparkvn-block-hover,
+.block-editor-block-types-list__item.is-hovered > .sparkvn-block-hover {
+	display: block;
+}
+
+.block-editor-inserter__preview .sparkvn-block-hover-preview,
+.block-editor-inserter__preview-content .sparkvn-block-hover-preview {
+	display: block;
+	position: static;
+	right: auto;
+	top: auto;
+	transform: none;
+	width: 100%;
+	max-height: 220px;
+	box-shadow: none;
+}
+
+/* Tabs editor: one panel at a time, matching the live UI. */
+.editor-styles-wrapper .sparkvn-tabs-editor .tab-list {
+	flex-wrap: nowrap;
+	overflow-x: auto;
+}
+
+.editor-styles-wrapper .sparkvn-tabs-editor > .tab-panels > .block-editor-inner-blocks > .block-editor-block-list__layout > .wp-block {
+	display: none !important;
+}
+
+.editor-styles-wrapper .sparkvn-tabs-editor[data-active-tab="0"] > .tab-panels > .block-editor-inner-blocks > .block-editor-block-list__layout > .wp-block:nth-child(1),
+.editor-styles-wrapper .sparkvn-tabs-editor[data-active-tab="1"] > .tab-panels > .block-editor-inner-blocks > .block-editor-block-list__layout > .wp-block:nth-child(2),
+.editor-styles-wrapper .sparkvn-tabs-editor[data-active-tab="2"] > .tab-panels > .block-editor-inner-blocks > .block-editor-block-list__layout > .wp-block:nth-child(3),
+.editor-styles-wrapper .sparkvn-tabs-editor[data-active-tab="3"] > .tab-panels > .block-editor-inner-blocks > .block-editor-block-list__layout > .wp-block:nth-child(4),
+.editor-styles-wrapper .sparkvn-tabs-editor[data-active-tab="4"] > .tab-panels > .block-editor-inner-blocks > .block-editor-block-list__layout > .wp-block:nth-child(5),
+.editor-styles-wrapper .sparkvn-tabs-editor[data-active-tab="5"] > .tab-panels > .block-editor-inner-blocks > .block-editor-block-list__layout > .wp-block:nth-child(6),
+.editor-styles-wrapper .sparkvn-tabs-editor[data-active-tab="6"] > .tab-panels > .block-editor-inner-blocks > .block-editor-block-list__layout > .wp-block:nth-child(7),
+.editor-styles-wrapper .sparkvn-tabs-editor[data-active-tab="7"] > .tab-panels > .block-editor-inner-blocks > .block-editor-block-list__layout > .wp-block:nth-child(8),
+.editor-styles-wrapper .sparkvn-tabs-editor[data-active-tab="8"] > .tab-panels > .block-editor-inner-blocks > .block-editor-block-list__layout > .wp-block:nth-child(9),
+.editor-styles-wrapper .sparkvn-tabs-editor[data-active-tab="9"] > .tab-panels > .block-editor-inner-blocks > .block-editor-block-list__layout > .wp-block:nth-child(10),
+.editor-styles-wrapper .sparkvn-tabs-editor[data-active-tab="10"] > .tab-panels > .block-editor-inner-blocks > .block-editor-block-list__layout > .wp-block:nth-child(11),
+.editor-styles-wrapper .sparkvn-tabs-editor[data-active-tab="11"] > .tab-panels > .block-editor-inner-blocks > .block-editor-block-list__layout > .wp-block:nth-child(12),
+.editor-styles-wrapper .sparkvn-tabs-editor[data-active-tab="12"] > .tab-panels > .block-editor-inner-blocks > .block-editor-block-list__layout > .wp-block:nth-child(13),
+.editor-styles-wrapper .sparkvn-tabs-editor[data-active-tab="13"] > .tab-panels > .block-editor-inner-blocks > .block-editor-block-list__layout > .wp-block:nth-child(14),
+.editor-styles-wrapper .sparkvn-tabs-editor[data-active-tab="14"] > .tab-panels > .block-editor-inner-blocks > .block-editor-block-list__layout > .wp-block:nth-child(15),
+.editor-styles-wrapper .sparkvn-tabs-editor[data-active-tab="15"] > .tab-panels > .block-editor-inner-blocks > .block-editor-block-list__layout > .wp-block:nth-child(16) {
+	display: block !important;
+}
+
+.editor-styles-wrapper .sparkvn-tabs-editor[data-active-tab="0"] > .tab-panels > .block-editor-inner-blocks > .block-editor-block-list__layout > .wp-block:nth-child(1).tab-panel.split,
+.editor-styles-wrapper .sparkvn-tabs-editor[data-active-tab="1"] > .tab-panels > .block-editor-inner-blocks > .block-editor-block-list__layout > .wp-block:nth-child(2).tab-panel.split,
+.editor-styles-wrapper .sparkvn-tabs-editor[data-active-tab="2"] > .tab-panels > .block-editor-inner-blocks > .block-editor-block-list__layout > .wp-block:nth-child(3).tab-panel.split,
+.editor-styles-wrapper .sparkvn-tabs-editor[data-active-tab="3"] > .tab-panels > .block-editor-inner-blocks > .block-editor-block-list__layout > .wp-block:nth-child(4).tab-panel.split,
+.editor-styles-wrapper .sparkvn-tabs-editor[data-active-tab="4"] > .tab-panels > .block-editor-inner-blocks > .block-editor-block-list__layout > .wp-block:nth-child(5).tab-panel.split,
+.editor-styles-wrapper .sparkvn-tabs-editor[data-active-tab="5"] > .tab-panels > .block-editor-inner-blocks > .block-editor-block-list__layout > .wp-block:nth-child(6).tab-panel.split,
+.editor-styles-wrapper .sparkvn-tabs-editor[data-active-tab="6"] > .tab-panels > .block-editor-inner-blocks > .block-editor-block-list__layout > .wp-block:nth-child(7).tab-panel.split,
+.editor-styles-wrapper .sparkvn-tabs-editor[data-active-tab="7"] > .tab-panels > .block-editor-inner-blocks > .block-editor-block-list__layout > .wp-block:nth-child(8).tab-panel.split,
+.editor-styles-wrapper .sparkvn-tabs-editor[data-active-tab="8"] > .tab-panels > .block-editor-inner-blocks > .block-editor-block-list__layout > .wp-block:nth-child(9).tab-panel.split,
+.editor-styles-wrapper .sparkvn-tabs-editor[data-active-tab="9"] > .tab-panels > .block-editor-inner-blocks > .block-editor-block-list__layout > .wp-block:nth-child(10).tab-panel.split,
+.editor-styles-wrapper .sparkvn-tabs-editor[data-active-tab="10"] > .tab-panels > .block-editor-inner-blocks > .block-editor-block-list__layout > .wp-block:nth-child(11).tab-panel.split,
+.editor-styles-wrapper .sparkvn-tabs-editor[data-active-tab="11"] > .tab-panels > .block-editor-inner-blocks > .block-editor-block-list__layout > .wp-block:nth-child(12).tab-panel.split,
+.editor-styles-wrapper .sparkvn-tabs-editor[data-active-tab="12"] > .tab-panels > .block-editor-inner-blocks > .block-editor-block-list__layout > .wp-block:nth-child(13).tab-panel.split,
+.editor-styles-wrapper .sparkvn-tabs-editor[data-active-tab="13"] > .tab-panels > .block-editor-inner-blocks > .block-editor-block-list__layout > .wp-block:nth-child(14).tab-panel.split,
+.editor-styles-wrapper .sparkvn-tabs-editor[data-active-tab="14"] > .tab-panels > .block-editor-inner-blocks > .block-editor-block-list__layout > .wp-block:nth-child(15).tab-panel.split,
+.editor-styles-wrapper .sparkvn-tabs-editor[data-active-tab="15"] > .tab-panels > .block-editor-inner-blocks > .block-editor-block-list__layout > .wp-block:nth-child(16).tab-panel.split {
+	display: grid !important;
+	grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important;
+	grid-template-rows: auto !important;
+	gap: clamp(32px, 5vw, 68px);
+	align-items: start;
+}
+
+/* Gutenberg sets .wp-block { position: relative }, so split-media's
+   sticky top:96px becomes a 96px downward offset. Sticky is for the
+   public page scroll, not the editor canvas. */
+.editor-styles-wrapper .split-media {
+	position: static !important;
+	top: auto !important;
+	align-self: start !important;
+}
+
+.editor-styles-wrapper .wp-block-columns.is-style-split > .wp-block,
+.editor-styles-wrapper .wp-block-columns.is-style-split-rev > .wp-block,
+.editor-styles-wrapper .wp-block-columns.split > .wp-block {
+	margin-block-start: 0 !important;
+	margin-top: 0 !important;
+	align-self: start !important;
+}
+
+/* Flatten Gutenberg wrappers so photo and copy are the two grid cells. */
+.editor-styles-wrapper .tab-panel.split > .block-editor-inner-blocks,
+.editor-styles-wrapper .tab-panel.split > .block-editor-inner-blocks > .block-editor-block-list__layout {
+	display: contents;
+}
+
+.editor-styles-wrapper .sparkvn-tabs-editor > .tab-panels > .block-editor-inner-blocks .tab-panel .wp-block:not(ul):not(ol):not(.wp-block-list),
+.editor-styles-wrapper .sparkvn-tabs-editor > .tab-panels > .block-editor-inner-blocks .tab-panel .split-media,
+.editor-styles-wrapper .sparkvn-tabs-editor > .tab-panels > .block-editor-inner-blocks .tab-panel .split-copy {
+	display: block !important;
+}
+
+.editor-styles-wrapper .tab-panel.split > .split-media,
+.editor-styles-wrapper .tab-panel.split > .wp-block.split-media,
+.editor-styles-wrapper .tab-panel.split > .split-copy,
+.editor-styles-wrapper .tab-panel.split > .wp-block.split-copy {
+	min-width: 0;
+	grid-row: 1 !important;
+	margin-top: 0 !important;
+	margin-block-start: 0 !important;
+	align-self: start !important;
+}
+
+.editor-styles-wrapper .tab-panel.split > .split-media,
+.editor-styles-wrapper .tab-panel.split > .wp-block.split-media {
+	overflow: hidden;
+	border-radius: var(--r-lg, 16px);
+	position: static !important;
+	top: auto !important;
+}
+
+.editor-styles-wrapper .tab-panel.split .split-media img {
+	width: 100%;
+	max-height: var(--split-img-maxh, 400px);
+	aspect-ratio: var(--split-img-ratio, 4/3);
+	object-fit: cover;
+	display: block;
+}
+
+/* Copy spacing must match frontend .copy, not Gutenberg block-gap. */
+.editor-styles-wrapper .tab-panel.split .split-copy.is-layout-flow > .wp-block + .wp-block {
+	margin-block-start: 1.1rem !important;
+	margin-top: 1.1rem !important;
+}
+
+.editor-styles-wrapper .tab-panel.split .split-copy > h3.wp-block,
+.editor-styles-wrapper .tab-panel.split .split-copy > .wp-block-heading:is(h3) {
+	margin-block-start: 1.6rem !important;
+	margin-top: 1.6rem !important;
+}
+
+.editor-styles-wrapper .tab-panel.split .split-copy > h4.wp-block,
+.editor-styles-wrapper .tab-panel.split .split-copy > .wp-block-heading:is(h4) {
+	margin-block-start: 1.4rem !important;
+	margin-top: 1.4rem !important;
+}
+
+.editor-styles-wrapper .tab-panel.split .split-copy > ul,
+.editor-styles-wrapper .tab-panel.split .split-copy > ul.wp-block-list {
+	display: flex !important;
+	flex-direction: column;
+	gap: 0.45rem;
+	margin-block-start: 0 !important;
+	margin-top: 0 !important;
+	padding-left: 1.25em;
+}
+
+.editor-styles-wrapper .tab-panel.split .split-copy ul li::marker {
+	color: var(--accent, #AF863A);
+}
+
+/* Inline CTA: empty .spark paragraph must not stretch the card. */
+.editor-styles-wrapper .wp-block-group.inline-cta {
+	min-height: 0 !important;
+	height: auto !important;
+}
+
+.editor-styles-wrapper .inline-cta > .block-editor-inner-blocks > .block-editor-block-list__layout {
+	min-height: 0 !important;
+}
+
+.editor-styles-wrapper .inline-cta .block-list-appender {
+	display: none;
+}
+
+.editor-styles-wrapper .inline-cta .wp-block-paragraph.spark {
+	display: inline-block !important;
+	width: 1.7em !important;
+	height: 1.7em !important;
+	min-height: 0 !important;
+	max-height: 1.7em !important;
+	margin: 0 auto 0.7rem !important;
+	padding: 0 !important;
+	overflow: hidden;
+}
+
+.editor-styles-wrapper .sparkvn-tab-item {
+	display: flex;
+	align-items: center;
+	position: relative;
+	flex-shrink: 0;
+}
+
+.editor-styles-wrapper .sparkvn-tab-input {
+	font: inherit;
+	font-weight: 700;
+	font-family: var(--font-serif, inherit);
+	color: inherit;
+	border: 0;
+	background: transparent;
+	width: 7.5rem;
+	padding: 0;
+	text-align: center;
+	outline: none;
+}
+
+.editor-styles-wrapper .sparkvn-tab-remove {
+	position: absolute;
+	top: -0.35rem;
+	right: -0.2rem;
+	width: 1.15rem;
+	height: 1.15rem;
+	padding: 0 !important;
+	margin: 0 !important;
+	border: 0 !important;
+	border-radius: 999px !important;
+	background: var(--purple, #5D1C61) !important;
+	color: #fff !important;
+	font-size: 12px !important;
+	line-height: 1 !important;
+	cursor: pointer;
+	opacity: 0;
+}
+
+.editor-styles-wrapper .sparkvn-tab-item:hover .sparkvn-tab-remove,
+.editor-styles-wrapper .sparkvn-tab-item.is-active .sparkvn-tab-remove {
+	opacity: 1;
+}
+
+.editor-styles-wrapper .sparkvn-tab-add {
+	color: var(--accent, #AF863A) !important;
+	border-bottom-color: transparent !important;
+	white-space: nowrap;
+}
+
+/* Hub / image-pair: Group uses useInnerBlocksProps, so cards/images
+   are direct children. Keep them real boxes (selectable) and force
+   the 2-col grid even when the editor canvas is narrower than 700px. */
+.editor-styles-wrapper .wp-block-group.hub-grid {
+	display: grid !important;
+	grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important;
+	gap: 20px !important;
+}
+
+.editor-styles-wrapper .wp-block-group.img-pair {
+	display: grid !important;
+	grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important;
+	gap: 16px !important;
+}
+
+.editor-styles-wrapper .hub-grid > .wp-block,
+.editor-styles-wrapper .img-pair > .wp-block {
+	margin-block-start: 0 !important;
+	margin-top: 0 !important;
+	max-width: none !important;
+	min-width: 0;
+}
+
+/* Step grid: editable Group cards (not Custom HTML). Keep 2-col canvas. */
+.editor-styles-wrapper .wp-block-group.step-grid {
+	display: grid !important;
+	grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important;
+	gap: clamp(16px, 2vw, 24px) !important;
+}
+
+.editor-styles-wrapper .step-grid > .wp-block {
+	margin-block-start: 0 !important;
+	margin-top: 0 !important;
+	max-width: none !important;
+	min-width: 0;
+}
+
+.editor-styles-wrapper .wp-block-group.step-item {
+	display: grid !important;
+	grid-template-columns: 48px minmax(0, 1fr) !important;
+	gap: 1rem !important;
+	align-items: start !important;
+}
+
+/* Roadmap dots are CSS ::before on .rm-step — hide any legacy .rm-dot blocks. */
+.editor-styles-wrapper .rm-step > .rm-dot,
+.editor-styles-wrapper .rm-step > .wp-block-paragraph.rm-dot,
+.editor-styles-wrapper .rm-step > .wp-block-group.rm-dot {
+	display: none !important;
+}
+
+.editor-styles-wrapper .rm-step::before {
+	content: "" !important;
+	box-sizing: border-box !important;
+	width: 28px !important;
+	height: 28px !important;
+	min-width: 28px !important;
+	border-radius: 50% !important;
+	background: var(--paper, #fff) !important;
+	border: 3px solid var(--purple, #5D1C61) !important;
+	margin: 2px 0 0 !important;
+	position: relative !important;
+	z-index: 1 !important;
+	flex: none !important;
+}
+
+.editor-styles-wrapper .rm-step:first-child::before,
+.editor-styles-wrapper .rm-v .rm-step:first-child::before,
+.editor-styles-wrapper .rm-track > .rm-step:first-child::before {
+	background: var(--purple, #5D1C61) !important;
+}
+
+.editor-styles-wrapper .rm-v .rm-head,
+.editor-styles-wrapper .rm-v .wp-block-group.rm-head {
+	display: grid !important;
+	grid-template-columns: 150px minmax(0, 1fr) !important;
+	gap: clamp(14px, 2vw, 24px) !important;
+	align-items: start !important;
+	flex: 1 !important;
+}
+
+.editor-styles-wrapper .rm-v .rm-card,
+.editor-styles-wrapper .rm-v .wp-block-group.rm-card {
+	display: grid !important;
+	grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr) !important;
+	gap: 0.6rem clamp(18px, 2.4vw, 32px) !important;
+}

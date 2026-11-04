@@ -1,0 +1,284 @@
+// home — page-specific section styles (used on one page).
+@use '../abstracts/mixins' as *;
+
+.pathway-track {
+  position: relative;
+  margin-top: clamp(44px,5vw,68px);
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 38px;
+    height: 2px;
+    background: linear-gradient(90deg, var(--line-strong), var(--accent), var(--line-strong));
+  }
+
+  @include down(1024px) {
+    &::before {
+      display: none;
+    }
+  }
+}
+
+.pathway-grid {
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  gap: clamp(16px,2vw,26px);
+  position: relative;
+
+  @include down(1024px) {
+    grid-template-columns: 1fr 1fr;
+    gap: 30px 22px;
+  }
+
+  @include down(680px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.path-step {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+
+  &:hover .path-node {
+    border-color: var(--accent);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-sm);
+  }
+}
+
+.path-node {
+  width: 76px;
+  height: 76px;
+  border-radius: 50%;
+  background: var(--ivory);
+  border: 2px solid var(--line-strong);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-serif);
+  font-size: 1.6rem;
+  color: var(--purple);
+  position: relative;
+  z-index: 2;
+  margin-bottom: 22px;
+  flex: none;
+  transition: border-color .3s ease, transform .3s ease, box-shadow .3s;
+}
+
+.path-card {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--r);
+  padding: 22px 22px 24px;
+  flex: 1;
+  box-shadow: var(--shadow-sm);
+
+  h3 {
+    font-size: 1.18rem;
+  }
+
+  .outcome {
+    margin-top: 1rem;
+    color: var(--ink-soft);
+    font-size: .98rem;
+  }
+
+  .outcome b {
+    color: var(--ink);
+    font-weight: 600;
+  }
+
+  ul {
+    list-style: none;
+    margin: .7rem 0 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: .3rem;
+    color: var(--ink-soft);
+    font-size: .95rem;
+  }
+
+  ul li::before {
+    content: "·";
+    color: var(--accent);
+    margin-right: .5em;
+    font-weight: 700;
+  }
+}
+
+.path-tag {
+  display: inline-block;
+  margin-top: .6rem;
+  font-size: .74rem;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--purple);
+  background: var(--purple-tint);
+  padding: .34em .7em;
+  border-radius: 999px;
+}
+
+.testi-grid {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: clamp(18px,2vw,26px);
+  margin-top: clamp(40px,4vw,56px);
+
+  @include down(1024px) {
+    grid-template-columns: 1fr;
+    max-width: 620px;
+    margin-inline: auto;
+  }
+}
+
+.testi {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--r-lg);
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--shadow-sm);
+
+  blockquote {
+    margin: 1.1rem 0 0;
+    font-family: var(--font-serif);
+    font-size: 1.18rem;
+    line-height: 1.45;
+    color: var(--ink);
+  }
+
+  .who {
+    display: flex;
+    align-items: center;
+    gap: .8rem;
+    margin-top: auto;
+    padding-top: 1.4rem;
+  }
+
+  .avatar {
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    overflow: hidden;
+    flex: none;
+    background: var(--purple-tint);
+  }
+
+  .avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .who b {
+    display: block;
+    font-family: var(--font-sans);
+    font-size: .95rem;
+  }
+
+  .who span {
+    font-size: .82rem;
+    color: var(--ink-faint);
+  }
+
+  .gsrc {
+    font-size: .74rem;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    font-weight: 700;
+  }
+}
+
+.promo {
+  display: grid;
+  grid-template-columns: minmax(0,1fr) auto;
+  gap: clamp(20px,3vw,48px);
+  align-items: center;
+  position: relative;
+
+  h2 {
+    color: #fff;
+  }
+
+  p {
+    color: #E7DCEA;
+    margin-top: .5rem;
+    font-size: 1.1rem;
+  }
+
+  .btn {
+    margin-top: 1.6rem;
+  }
+
+  @include down(700px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.promo-band {
+  overflow: hidden;
+}
+
+.promo-band--img {
+  background: #5D1C61 url(../assets/img/real/assess-banner.webp) right center/cover no-repeat;
+  min-height: clamp(320px,32vw,460px);
+  display: flex;
+  align-items: center;
+  padding-block: clamp(48px,5vw,72px);
+  overflow: hidden;
+
+  .promo {
+    display: block;
+    max-width: 520px;
+  }
+
+  h2 {
+    color: #fff;
+    font-size: clamp(1.9rem,3.2vw,2.8rem);
+    line-height: 1.15;
+    text-wrap: balance;
+  }
+
+  p {
+    color: #F2E8F3;
+    margin-top: .7rem;
+    font-size: 1.1rem;
+  }
+
+  .btn {
+    margin-top: 1.6rem;
+  }
+
+  @include down(900px) {
+    background-position: 72% center;
+  }
+
+  @include down(900px) {
+    .promo {
+      max-width: 46%;
+    }
+  }
+
+  @include down(640px) {
+    display: block;
+    min-height: 0;
+    padding: 44px 0 270px;
+    background: url(../assets/img/real/assess-banner.webp) 86% 100%/auto 290px no-repeat,linear-gradient(#5D1C61 0%,#5D1C61 40%,#B98AC9 100%);
+  }
+
+  @include down(640px) {
+    .promo {
+      max-width: none;
+      text-align: center;
+    }
+  }
+}

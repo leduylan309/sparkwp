@@ -1,0 +1,6 @@
+// timeline — component — owns only selectors rooted at its own classes. Appearance is configurable from outside only through its --custom-property API; parents may only position it (margin / alignment).
+@use '../abstracts/mixins' as *;
+
+.timeline {
+  margin-top: clamp(40px,5vw,60px);
+}

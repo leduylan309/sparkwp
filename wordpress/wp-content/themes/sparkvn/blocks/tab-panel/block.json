@@ -1,0 +1,22 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "sparkvn/tab-panel",
+	"title": "Tab",
+	"category": "sparkvn",
+	"icon": "table-col-after",
+	"description": "One tab. Rename the label, replace the photo, edit the copy.",
+	"parent": [ "sparkvn/tabs" ],
+	"textdomain": "sparkvn",
+	"attributes": {
+		"label": { "type": "string", "default": "Tab" },
+		"layout": { "type": "string", "default": "split" }
+	},
+	"supports": {
+		"html": false,
+		"align": false,
+		"reusable": false,
+		"customClassName": true
+	},
+	"editorScript": "sparkvn-blocks-editor"
+}

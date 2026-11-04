@@ -1,0 +1,61 @@
+// misc — page-specific section styles (used on one page).
+@use '../abstracts/mixins' as *;
+
+.toc {
+  position: sticky;
+  top: 100px;
+  align-self: start;
+
+  ol {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    counter-reset: toc;
+    display: flex;
+    flex-direction: column;
+  }
+
+  li {
+    counter-increment: toc;
+  }
+
+  a {
+    display: block;
+    position: relative;
+    padding: .5rem 0 .5rem 1.6rem;
+    font-size: .92rem;
+    line-height: 1.32;
+    color: var(--ink-soft);
+    border-left: 2px solid transparent;
+    transition: color .2s ease, border-color .2s ease;
+  }
+
+  a::before {
+    content: counter(toc,decimal-leading-zero);
+    position: absolute;
+    left: .55rem;
+    top: .5rem;
+    font-size: .7rem;
+    color: var(--ink-faint);
+    font-family: var(--font-serif);
+    transition: color .2s ease;
+  }
+
+  a:hover {
+    color: var(--purple);
+  }
+
+  a.active {
+    color: var(--purple);
+    border-left-color: var(--accent);
+    font-weight: 600;
+  }
+
+  a.active::before {
+    color: var(--accent);
+  }
+
+  @include down(920px) {
+    display: none;
+  }
+}

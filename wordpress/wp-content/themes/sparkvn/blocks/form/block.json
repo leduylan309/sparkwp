@@ -1,0 +1,25 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "sparkvn/form",
+	"title": "Spark Form",
+	"category": "sparkvn",
+	"icon": "email",
+	"textdomain": "sparkvn",
+	"attributes": {
+		"variation": { "type": "string", "default": "contact" },
+		"heading": { "type": "string", "default": "Contact Us" },
+		"sub": { "type": "string", "default": "" }
+	},
+	"supports": { "html": false },
+	"example": {
+		"viewportWidth": 560,
+		"attributes": {
+			"variation": "contact",
+			"heading": "Contact Us",
+			"sub": "Tell us about your child and we will get back to you."
+		}
+	},
+	"editorScript": "sparkvn-blocks-editor",
+	"render": "file:./render.php"
+}

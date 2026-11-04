@@ -1,0 +1,19 @@
+// bridge — component — owns only selectors rooted at its own classes. Appearance is configurable from outside only through its --custom-property API; parents may only position it (margin / alignment).
+@use '../abstracts/mixins' as *;
+
+.bridge {
+  width: 100%;
+  max-width: 380px;
+  margin: clamp(10px,1.6vw,20px) auto clamp(12px,1.6vw,18px);
+
+  svg {
+    width: 100%;
+    height: auto;
+    display: block;
+    overflow: visible;
+  }
+
+  @include down(lg) {
+    max-width: 360px;
+  }
+}
