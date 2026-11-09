@@ -150,7 +150,8 @@
     font-size: clamp(1.22rem,1.8vw,1.45rem);
     margin-top: 2.2rem;
     scroll-margin-top: 100px;
-    color: var(--ink);
+    // Match html/blog-post.html article chrome
+    color: var(--purple);
   }
 
   h2 + p {
@@ -159,6 +160,14 @@
 
   h3 + p {
     margin-top: 1rem;
+  }
+
+  // html/blog-post.html FAQ questions
+  .faq-q {
+    font-weight: 700;
+    margin-top: 1.4rem;
+    color: var(--ink);
+    font-family: var(--font-serif);
   }
 
   strong {

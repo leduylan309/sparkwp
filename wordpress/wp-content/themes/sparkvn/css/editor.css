@@ -1,5 +1,22 @@
 /* Editor chrome only — do not restyle Spark components. */
 
+/* Base canvas: match theme.json / frontend ivory + brand fonts. */
+.editor-styles-wrapper {
+	background-color: var(--ivory, #fbf7f0);
+	color: var(--ink, #2b2530);
+	font-family: var(--font-sans, "Frank Ruhl Libre", Georgia, serif);
+}
+
+.editor-styles-wrapper h1,
+.editor-styles-wrapper h2,
+.editor-styles-wrapper h3,
+.editor-styles-wrapper h4,
+.editor-styles-wrapper h5,
+.editor-styles-wrapper h6,
+.editor-styles-wrapper .wp-block-heading {
+	font-family: var(--font-serif, "Nunito Sans", ui-sans-serif, system-ui, sans-serif);
+}
+
 /* spark.js never runs in Gutenberg, so .reveal would stay opacity:0. */
 .editor-styles-wrapper .reveal,
 .is-root-container .reveal {
@@ -8,10 +25,10 @@
 	visibility: visible !important;
 }
 
-.editor-visual-editor__post-title-wrapper,
-.edit-post-visual-editor__post-title-wrapper {
-	display: none !important;
-}
+/*
+ * Default: keep WP title visible (blog posts need it to match frontend).
+ * Pages hide it via css/editor-page.css (injected only for post_type=page).
+ */
 
 .sparkvn-ssr-canvas {
 	max-width: none !important;

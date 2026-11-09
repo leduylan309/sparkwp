@@ -1,0 +1,11 @@
+/**
+ * Page editor — title lives in hero/content blocks, hide the WP title field.
+ */
+
+.editor-styles-wrapper .editor-visual-editor__post-title-wrapper,
+.editor-styles-wrapper .edit-post-visual-editor__post-title-wrapper,
+.editor-styles-wrapper .wp-block-post-title,
+.editor-visual-editor__post-title-wrapper,
+.edit-post-visual-editor__post-title-wrapper {
+	display: none !important;
+}

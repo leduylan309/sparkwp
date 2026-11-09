@@ -8,12 +8,21 @@
 get_header();
 sparkvn_breadcrumb();
 ?>
+<div class="read-progress" aria-hidden="true"></div>
 <main id="primary" class="article-wrap">
 	<?php
 	while ( have_posts() ) :
 		the_post();
 		$cats = get_the_category();
 		$cat  = $cats ? $cats[0]->name : __( 'Blog', 'sparkvn' );
+		$feat = get_the_post_thumbnail_url( get_the_ID(), 'large' );
+		if ( ! $feat ) {
+			$feat = sparkvn_media_url( get_the_ID(), 'assets/img/cdn/IMG_3499-1920w.jpeg' );
+		}
+		$feat_alt = get_post_meta( get_the_ID(), '_wp_attachment_image_alt', true );
+		if ( ! $feat_alt ) {
+			$feat_alt = get_the_title();
+		}
 		?>
 		<div class="container">
 			<header class="article-head">
@@ -31,7 +40,9 @@ sparkvn_breadcrumb();
 					</div>
 				</div>
 			</header>
-			<figure class="featured"><img src="<?php echo esc_url( sparkvn_media_url( get_the_ID(), 'assets/img/cdn/IMG_3499-1920w.jpeg' ) ); ?>" alt="" /></figure>
+			<figure class="featured">
+				<img src="<?php echo esc_url( $feat ); ?>" alt="<?php echo esc_attr( $feat_alt ); ?>" loading="eager" />
+			</figure>
 			<article class="prose" style="margin:clamp(40px,4.6vw,64px) auto 0">
 				<?php the_content(); ?>
 			</article>

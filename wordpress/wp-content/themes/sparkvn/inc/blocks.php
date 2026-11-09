@@ -159,12 +159,74 @@ function sparkvn_enqueue_block_editor_assets(): void {
 		)
 	);
 
+	wp_enqueue_style(
+		'sparkvn-fonts',
+		'https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,400;0,6..12,500;0,6..12,600;0,6..12,700;0,6..12,800;0,6..12,900;1,6..12,400;1,6..12,600&family=Frank+Ruhl+Libre:wght@300;400;500;600;700;800;900&display=swap',
+		array(),
+		null
+	);
+
 	$editor_css = get_template_directory() . '/css/editor.css';
 	wp_enqueue_style(
 		'sparkvn-editor',
 		get_template_directory_uri() . '/css/editor.css',
-		array(),
+		array( 'sparkvn-fonts' ),
 		file_exists( $editor_css ) ? (string) filemtime( $editor_css ) : SPARKVN_VERSION
 	);
+
+	$screen = function_exists( 'get_current_screen' ) ? get_current_screen() : null;
+	if ( $screen && 'page' === $screen->post_type ) {
+		wp_add_inline_style(
+			'sparkvn-editor',
+			'.editor-visual-editor__post-title-wrapper,.edit-post-visual-editor__post-title-wrapper{display:none!important}'
+		);
+	}
 }
 add_action( 'enqueue_block_editor_assets', 'sparkvn_enqueue_block_editor_assets' );
+
+/**
+ * Inject type-specific canvas CSS into the iframed block editor.
+ *
+ * Posts: mirror frontend .prose article (width, type, rhythm).
+ * Pages: hide the WP title field (title lives in hero blocks).
+ *
+ * @param array                   $settings Editor settings.
+ * @param WP_Block_Editor_Context $context  Editor context.
+ * @return array
+ */
+function sparkvn_block_editor_type_styles( array $settings, $context ): array {
+	$post = isset( $context->post ) ? $context->post : null;
+	if ( ! $post instanceof WP_Post ) {
+		return $settings;
+	}
+
+	$map = array(
+		'post' => 'css/editor-post.css',
+		'page' => 'css/editor-page.css',
+	);
+	$rel = $map[ $post->post_type ] ?? '';
+	if ( ! $rel ) {
+		return $settings;
+	}
+
+	$file = get_template_directory() . '/' . $rel;
+	if ( ! is_readable( $file ) ) {
+		return $settings;
+	}
+
+	$css = (string) file_get_contents( $file );
+	if ( '' === trim( $css ) ) {
+		return $settings;
+	}
+
+	if ( ! isset( $settings['styles'] ) || ! is_array( $settings['styles'] ) ) {
+		$settings['styles'] = array();
+	}
+	$settings['styles'][] = array(
+		'css'            => $css,
+		'__unstableType' => 'theme',
+	);
+
+	return $settings;
+}
+add_filter( 'block_editor_settings_all', 'sparkvn_block_editor_type_styles', 20, 2 );

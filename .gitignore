@@ -11,6 +11,7 @@ wordpress/wp-content/backup-db/
 wordpress/wp-content/debug.log
 
 html/
+BLOG MANAGEMENT/
 
 # OS / IDE
 .DS_Store

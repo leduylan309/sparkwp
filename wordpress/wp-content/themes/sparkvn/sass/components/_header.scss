@@ -273,7 +273,12 @@
 }
 
 .page-top {
-  height: 74px;
+  // Match un-scrolled .site-header (.nav height + 1px border) so crumb-bar clears the fixed header.
+  height: 101px;
+
+  @include down(md) {
+    height: 81px;
+  }
 }
 
 .nav-item {

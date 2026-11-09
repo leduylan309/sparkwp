@@ -6,7 +6,7 @@
  */
 
 if ( ! defined( 'SPARKVN_VERSION' ) ) {
-	define( 'SPARKVN_VERSION', '1.0.2' );
+	define( 'SPARKVN_VERSION', '1.0.3' );
 }
 
 /**
@@ -45,7 +45,14 @@ function sparkvn_setup() {
 	add_theme_support( 'align-wide' );
 	add_theme_support( 'responsive-embeds' );
 	add_theme_support( 'editor-styles' );
-	add_editor_style( array( 'css/main.css', 'css/editor.css' ) );
+	// Fonts must load inside the iframed editor (frontend enqueue does not apply there).
+	add_editor_style(
+		array(
+			'https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,400;0,6..12,500;0,6..12,600;0,6..12,700;0,6..12,800;0,6..12,900;1,6..12,400;1,6..12,600&family=Frank+Ruhl+Libre:wght@300;400;500;600;700;800;900&display=swap',
+			'css/main.css',
+			'css/editor.css',
+		)
+	);
 	add_theme_support( 'custom-line-height' );
 	add_theme_support( 'custom-spacing' );
 	add_theme_support( 'custom-units' );
@@ -130,6 +137,7 @@ require get_template_directory() . '/inc/block-styles.php';
 require get_template_directory() . '/inc/patterns.php';
 require get_template_directory() . '/inc/blocks.php';
 require get_template_directory() . '/inc/rest-leads.php';
+require get_template_directory() . '/inc/seo.php';
 
 if ( defined( 'WP_CLI' ) && WP_CLI ) {
 	require get_template_directory() . '/inc/cli.php';

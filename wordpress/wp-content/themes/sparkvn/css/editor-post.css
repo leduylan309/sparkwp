@@ -1,0 +1,170 @@
+/**
+ * Blog post editor canvas — mirror frontend single.php .prose article.
+ * Injected only when editing post_type=post (see blocks.php).
+ */
+
+.editor-styles-wrapper {
+	background: var(--ivory, #fbf7f0) !important;
+	color: var(--ink, #2b2530);
+	font-family: var(--font-sans, "Frank Ruhl Libre", Georgia, serif);
+	font-size: 1.085rem;
+	line-height: 1.74;
+	padding: clamp(28px, 4vw, 56px) clamp(20px, 4vw, 48px) !important;
+}
+
+/* Post title field → match frontend .article-title */
+.editor-styles-wrapper .editor-visual-editor__post-title-wrapper,
+.editor-styles-wrapper .edit-post-visual-editor__post-title-wrapper,
+.editor-styles-wrapper .wp-block-post-title {
+	display: block !important;
+	max-width: 720px;
+	margin: 0 auto 1.6rem !important;
+}
+
+.editor-styles-wrapper .editor-visual-editor__post-title-wrapper .wp-block-post-title,
+.editor-styles-wrapper .edit-post-visual-editor__post-title-wrapper .editor-post-title__input,
+.editor-styles-wrapper .wp-block-post-title,
+.editor-styles-wrapper h1.editor-post-title,
+.editor-styles-wrapper h1.editor-post-title__input {
+	font-family: var(--font-serif, "Nunito Sans", ui-sans-serif, system-ui, sans-serif) !important;
+	font-weight: 700 !important;
+	font-size: clamp(2.3rem, 4.4vw, 3.5rem) !important;
+	line-height: 1.06 !important;
+	letter-spacing: -0.018em !important;
+	color: var(--purple, #5d1c61) !important;
+	margin: 0 !important;
+	padding: 0 !important;
+}
+
+/* Match frontend .prose { max-width: 720px } */
+.editor-styles-wrapper .is-root-container,
+.editor-styles-wrapper .block-editor-block-list__layout.is-root-container {
+	max-width: 720px !important;
+	margin-inline: auto !important;
+}
+
+/* Frontend: .prose > * + * { margin-top: 1.4rem } */
+.editor-styles-wrapper .is-root-container > .wp-block + .wp-block {
+	margin-block-start: 1.4rem !important;
+	margin-top: 1.4rem !important;
+}
+
+.editor-styles-wrapper p,
+.editor-styles-wrapper .wp-block-paragraph {
+	font-family: var(--font-sans, "Frank Ruhl Libre", Georgia, serif);
+	font-size: 1.085rem;
+	line-height: 1.74;
+	color: var(--ink, #2b2530);
+	margin: 0;
+}
+
+.editor-styles-wrapper a {
+	color: var(--purple, #5d1c61);
+	text-decoration: underline;
+	text-decoration-color: var(--purple-line, #e4d2e6);
+	text-underline-offset: 3px;
+	text-decoration-thickness: 1.5px;
+}
+
+.editor-styles-wrapper h1,
+.editor-styles-wrapper h2,
+.editor-styles-wrapper h3,
+.editor-styles-wrapper h4,
+.editor-styles-wrapper .wp-block-heading {
+	font-family: var(--font-serif, "Nunito Sans", ui-sans-serif, system-ui, sans-serif);
+	font-weight: 700;
+	letter-spacing: -0.01em;
+	text-wrap: balance;
+	margin: 0;
+}
+
+/* Frontend blog-post.html: .prose h3 { color: var(--purple) } */
+.editor-styles-wrapper h2,
+.editor-styles-wrapper h2.wp-block-heading {
+	font-size: clamp(1.7rem, 2.7vw, 2.15rem);
+	line-height: 1.14;
+	color: var(--purple, #5d1c61);
+	position: relative;
+	padding-top: 1.6rem;
+}
+
+.editor-styles-wrapper h2::before,
+.editor-styles-wrapper h2.wp-block-heading::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 48px;
+	height: 2px;
+	background: var(--accent, #af863a);
+}
+
+.editor-styles-wrapper h3,
+.editor-styles-wrapper h3.wp-block-heading {
+	font-size: clamp(1.22rem, 1.8vw, 1.45rem);
+	line-height: 1.18;
+	color: var(--purple, #5d1c61);
+}
+
+.editor-styles-wrapper h4,
+.editor-styles-wrapper h4.wp-block-heading {
+	font-size: 1.15rem;
+	line-height: 1.25;
+	color: var(--ink, #2b2530);
+}
+
+/* Tighter gap after headings → first paragraph (frontend .prose h3 + p) */
+.editor-styles-wrapper .is-root-container > .wp-block-heading + .wp-block-paragraph {
+	margin-block-start: 1rem !important;
+	margin-top: 1rem !important;
+}
+
+.editor-styles-wrapper strong,
+.editor-styles-wrapper b {
+	font-weight: 700;
+	color: var(--ink, #2b2530);
+}
+
+.editor-styles-wrapper em {
+	font-style: italic;
+}
+
+.editor-styles-wrapper ul.wp-block-list,
+.editor-styles-wrapper ol.wp-block-list,
+.editor-styles-wrapper .wp-block-list {
+	margin: 0;
+	padding-left: 0;
+	list-style: none;
+	display: flex;
+	flex-direction: column;
+	gap: 0.85rem;
+}
+
+.editor-styles-wrapper ul.wp-block-list li,
+.editor-styles-wrapper .wp-block-list.is-style-default li {
+	position: relative;
+	padding-left: 1.7rem;
+	font-size: 1.06rem;
+	line-height: 1.6;
+	color: var(--ink, #2b2530);
+}
+
+.editor-styles-wrapper ul.wp-block-list li::before {
+	content: "";
+	position: absolute;
+	left: 0.3rem;
+	top: 0.66em;
+	width: 7px;
+	height: 7px;
+	border-radius: 50%;
+	background: var(--accent, #af863a);
+}
+
+.editor-styles-wrapper blockquote,
+.editor-styles-wrapper .wp-block-quote {
+	margin: 0;
+	padding-left: 1.1rem;
+	border-left: 3px solid var(--accent, #af863a);
+	color: var(--ink-soft, #6a6470);
+	font-family: var(--font-sans, "Frank Ruhl Libre", Georgia, serif);
+}

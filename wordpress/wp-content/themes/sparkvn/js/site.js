@@ -1,6 +1,20 @@
 /* Spark English Center — interior pages: tabs (works alongside spark.js + blog.js) */
 (function(){
   'use strict';
+
+  // Article reading progress (html/blog-post.html .read-progress)
+  var bar = document.querySelector('.read-progress');
+  if (bar) {
+    var onScroll = function () {
+      var doc = document.documentElement;
+      var max = doc.scrollHeight - doc.clientHeight;
+      var pct = max > 0 ? (doc.scrollTop / max) * 100 : 0;
+      bar.style.width = Math.min(100, Math.max(0, pct)) + '%';
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  }
+
   document.querySelectorAll('.tabs').forEach(function(tabs){
     var buttons=Array.prototype.slice.call(tabs.querySelectorAll('.tab-list button'));
     var wrap=tabs.querySelector('.tab-panels')||tabs;

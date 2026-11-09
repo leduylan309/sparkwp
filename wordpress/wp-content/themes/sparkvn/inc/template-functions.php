@@ -22,6 +22,8 @@ function sparkvn_search_posts_only( $query ): void {
 	if ( $query->is_home() ) {
 		$query->set( 'post_type', 'post' );
 		$query->set( 'posts_per_page', 9 );
+		$query->set( 'orderby', 'date' );
+		$query->set( 'order', 'DESC' );
 		$topic = sanitize_title( (string) $query->get( 'spark_topic' ) );
 		if ( ! $topic ) {
 			$topic = sanitize_title( (string) ( $_GET['category_name'] ?? '' ) ); // phpcs:ignore WordPress.Security.NonceVerification.Recommended
@@ -500,15 +502,30 @@ function sparkvn_render_post_card( ?\WP_Post $post = null, string $style = 'full
 		return;
 	}
 	?>
+	<?php
+	$mins = function_exists( 'sparkvn_reading_minutes' ) ? sparkvn_reading_minutes( $post_id ) : 4;
+	?>
 	<article class="post-card show" data-cat="<?php echo esc_attr( $slugs ); ?>" data-title="<?php echo esc_attr( $title ); ?>">
 		<a class="thumb" href="<?php echo esc_url( $link ); ?>" aria-label="<?php echo esc_attr( $title ); ?>">
-			<img src="<?php echo esc_url( $thumb ); ?>" alt="" loading="lazy" />
+			<img src="<?php echo esc_url( $thumb ); ?>" alt="<?php echo esc_attr( $title ); ?>" loading="lazy" />
 		</a>
 		<div class="pc-body">
 			<span class="pc-cat"><?php echo esc_html( $label ); ?></span>
 			<h3><a href="<?php echo esc_url( $link ); ?>"><?php echo esc_html( $title ); ?></a></h3>
 			<p class="pc-ex"><?php echo esc_html( wp_trim_words( get_the_excerpt( $post_id ), 28 ) ); ?></p>
 			<div class="pc-meta"><span><?php echo esc_html( get_the_date( '', $post_id ) ); ?></span></div>
+			<span class="pc-foot">
+				<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+				<?php
+				echo esc_html(
+					sprintf(
+						/* translators: %d: minutes */
+						_n( '%d min read', '%d min read', $mins, 'sparkvn' ),
+						$mins
+					)
+				);
+				?>
+			</span>
 		</div>
 	</article>
 	<?php

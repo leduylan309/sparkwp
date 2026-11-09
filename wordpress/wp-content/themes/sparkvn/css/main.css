@@ -648,7 +648,12 @@ em {
 }
 
 .page-top {
-  height: 74px;
+  height: 101px;
+}
+@media (max-width: 760px) {
+  .page-top {
+    height: 81px;
+  }
 }
 
 .nav-item {
@@ -915,7 +920,7 @@ em {
   color: #fff;
   text-wrap: normal;
   line-height: 1.02;
-  font-weight: 900;
+  font-weight: 700;
   font-size: clamp(2.4rem, 5vw, 4rem);
   letter-spacing: -0.025em;
 }
@@ -1741,13 +1746,19 @@ a.chip {
   font-size: clamp(1.22rem, 1.8vw, 1.45rem);
   margin-top: 2.2rem;
   scroll-margin-top: 100px;
-  color: var(--ink);
+  color: var(--purple);
 }
 .prose h2 + p {
   margin-top: 1rem;
 }
 .prose h3 + p {
   margin-top: 1rem;
+}
+.prose .faq-q {
+  font-weight: 700;
+  margin-top: 1.4rem;
+  color: var(--ink);
+  font-family: var(--font-serif);
 }
 .prose strong {
   font-weight: 700;
