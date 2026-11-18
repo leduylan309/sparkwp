@@ -62,7 +62,7 @@ Do not create a custom block per SCSS file. Do not sync CTA/Related (copy differ
 
 - Inserter categories: `sparkvn-pages`, `sparkvn-layout`, `sparkvn-cards`, `sparkvn-content`, `sparkvn-cta`, `sparkvn-connect`. Blocks: `sparkvn`.
 - Program CPT starts with an unlocked starter (hero, summary, split, tabs, FAQ, related, CTA). Tabs: add / rename / remove from the tab bar. Tides has no Tabs block.
-- Forms POST to `POST /wp-json/sparkvn/v1/lead` and store `spark_lead`. No third-party form plugin.
+- Forms POST to `POST /wp-json/sparkvn/v1/lead`, store `spark_lead`, and notify staff via theme SMTP (`Settings → Spark Email`: From / To / CC). No third-party form or mail plugin.
 - Marketing copy and images are Gutenberg blocks (`core/heading`, `core/paragraph`, `core/list`, `core/image`, `core/buttons`, `core/details`, `core/table`, `core/group`, `core/columns`, `sparkvn/hero`, `sparkvn/card`). Do not wrap them in `wp:html`.
 - Custom HTML is allowed only when core cannot express the DOM (map iframe).
 - Seed sideloads theme files into the Media Library. In the editor, Replace an image — do not edit a raw `src`.

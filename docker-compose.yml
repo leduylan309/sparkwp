@@ -89,6 +89,17 @@ services:
     networks:
       - wordpress
 
+  # Local SMTP catcher for form-email QA (UI :8025, SMTP :1025).
+  mailpit:
+    image: axllent/mailpit:latest
+    container_name: spark-mailpit
+    restart: unless-stopped
+    ports:
+      - "${MAILPIT_UI_PORT:-8025}:8025"
+      - "${MAILPIT_SMTP_PORT:-1025}:1025"
+    networks:
+      - wordpress
+
 volumes:
   db_data:
 

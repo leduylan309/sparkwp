@@ -95,6 +95,11 @@ function sparkvn_handle_lead( WP_REST_Request $request ) {
 	}
 	update_post_meta( $post_id, 'spark_form', $form );
 
+	// Soft-fail: lead is saved even if mail fails.
+	if ( function_exists( 'sparkvn_send_lead_notification' ) ) {
+		sparkvn_send_lead_notification( (int) $post_id, $form, is_array( $params ) ? $params : array() );
+	}
+
 	return rest_ensure_response(
 		array(
 			'ok'      => true,

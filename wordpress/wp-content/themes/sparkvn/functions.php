@@ -137,6 +137,9 @@ require get_template_directory() . '/inc/block-styles.php';
 require get_template_directory() . '/inc/patterns.php';
 require get_template_directory() . '/inc/blocks.php';
 require get_template_directory() . '/inc/rest-leads.php';
+require get_template_directory() . '/inc/email.php';
+require get_template_directory() . '/inc/email-template-lead.php';
+require get_template_directory() . '/inc/email-settings.php';
 require get_template_directory() . '/inc/seo.php';
 
 if ( defined( 'WP_CLI' ) && WP_CLI ) {
